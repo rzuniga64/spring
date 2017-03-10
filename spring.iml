@@ -29,6 +29,10 @@
           <file>file://$MODULE_DIR$/src/main/java/com/spring/beans/autowireremoveambiguities.xml</file>
           <file>file://$MODULE_DIR$/src/main/java/com/spring/beans/annotationwiring.xml</file>
           <file>file://$MODULE_DIR$/src/main/java/com/spring/beans/annotationusingqualifiers.xml</file>
+          <file>file://$MODULE_DIR$/src/main/java/com/spring/beans/annotationresource.xml</file>
+          <file>file://$MODULE_DIR$/src/main/java/com/spring/beans/annotationautowire.xml</file>
+          <file>file://$MODULE_DIR$/src/main/java/com/spring/beans/annotationinitdestroy.xml</file>
+          <file>file://$MODULE_DIR$/src/main/java/com/spring/beans/autobeandiscovery.xml</file>
         </fileset>
       </configuration>
     </facet>

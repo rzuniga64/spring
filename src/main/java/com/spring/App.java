@@ -3,11 +3,13 @@ package com.spring;
 import com.spring.annotationautowire.Logger6;
 import com.spring.annotationresource.Logger8;
 import com.spring.annotationusingqualifiers.Logger7;
+import com.spring.autobeandiscovery.Logger10;
 import com.spring.autowirearemovembiguities.Logger5;
 import com.spring.autowirebyconstructor.Logger3;
 import com.spring.autowirebydefault.Logger4;
 import com.spring.autowirebyname.Logger2;
 import com.spring.autowirebytype.Logger;
+import com.spring.annotationinitdestroy.Logger9;
 import com.spring.intro.Address;
 import com.spring.intro.FruitBasket;
 import com.spring.intro.Jungle;
@@ -81,6 +83,8 @@ public final class App {
         app.annotationwiring();
         app.annotationusingqualifiers();
         app.annotationresource();
+        app.annotationinitdestroy();
+        app.automaticbeandiscovery();
 
         ((FileSystemXmlApplicationContext) App.context).close();
         ((FileSystemXmlApplicationContext) App.junglebean).close();
@@ -309,12 +313,48 @@ public final class App {
         /** A Spring bean container. */
         final ApplicationContext context =
                 new FileSystemXmlApplicationContext(
-                        "src/main/java/com/spring/beans/annotationresource.xml");
+        "src/main/java/com/spring/beans/annotationresource.xml");
 
         Logger8 logger = (Logger8) context.getBean("annotationresource");
 
         logger.writeConsole("Annotation resource");
         logger.writeFile("Annotation resource");
+
+        ((FileSystemXmlApplicationContext) context).close();
+    }
+
+    /**
+     *  Resource annotations using annotationsresource.xml.
+     */
+    private void annotationinitdestroy() {
+
+        /** A Spring bean container. */
+        final ApplicationContext context =
+                new FileSystemXmlApplicationContext(
+    "src/main/java/com/spring/beans/annotationinitdestroy.xml");
+
+        Logger9 logger = (Logger9) context.getBean("annotationinitdestroy");
+
+        logger.writeConsole("Annotation init and destroy");
+        logger.writeFile("Annotation init and destroy");
+
+        ((FileSystemXmlApplicationContext) context).close();
+    }
+
+    /**
+     *  Resource annotations using annotationsresource.xml.
+     */
+    private void automaticbeandiscovery() {
+
+        /** A Spring bean container. */
+        final ApplicationContext context =
+                new FileSystemXmlApplicationContext(
+        "src/main/java/com/spring/beans/autobeandiscovery.xml");
+
+        Logger10 logger = (Logger10) context.getBean("autobeandiscovery");
+
+        logger.writeConsole("Automatic bean discovery");
+        logger.writeFile("Automatic bean discovery");
 
         ((FileSystemXmlApplicationContext) context).close();
     }
