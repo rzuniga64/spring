@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="autowirebyconstructor"
+          class="com.spring.autowirebyconstructor.Logger3"
+          autowire="constructor">
+    </bean>
+
+    <bean name="consolewriter" class="com.spring.autowirebyconstructor.ConsoleWriter">
+    </bean>
+
+    <bean id="filewriter" class="com.spring.autowirebyconstructor.FileWriter">
+    </bean>
+
+</beans>

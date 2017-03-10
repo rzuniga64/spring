@@ -1,5 +1,6 @@
 package com.spring.intro;
 
+import com.spring.autowirebyconstructor.Logger3;
 import com.spring.autowirebyname.Logger2;
 import com.spring.autowirebytype.Logger;
 import com.spring.propertymaps.JungleFoods;
@@ -65,6 +66,7 @@ public final class App {
         app.propertymap();
         app.autowirebytype();
         app.autowirebyname();
+        app.autowirebyconstructor();
 
         ((FileSystemXmlApplicationContext) App.context).close();
         ((FileSystemXmlApplicationContext) App.junglebean).close();
@@ -135,7 +137,7 @@ public final class App {
         /** A Spring bean container. */
         final ApplicationContext jungleinnerbeans =
                 new FileSystemXmlApplicationContext(
-                        "src/main/java/com/spring/beans/jungleinnerbean.xml");
+            "src/main/java/com/spring/beans/jungleinnerbean.xml");
 
         Jungle jungle = (Jungle) jungleinnerbeans.getBean("jungle");
         System.out.println(jungle);
@@ -151,7 +153,7 @@ public final class App {
         /** A Spring bean container. */
         final ApplicationContext context =
                 new FileSystemXmlApplicationContext(
-                        "src/main/java/com/spring/beans/propertymap.xml");
+                "src/main/java/com/spring/beans/propertymap.xml");
 
         JungleFoods junglefoods = (JungleFoods) context.getBean("jungleFoods");
         System.out.println(junglefoods);
@@ -163,10 +165,11 @@ public final class App {
      *  Autowire classes using autowirebytype.xml.
      */
     public void autowirebytype() {
+
         /** A Spring bean container. */
         final ApplicationContext context =
                 new FileSystemXmlApplicationContext(
-                        "src/main/java/com/spring/beans/autowirebytype.xml");
+            "src/main/java/com/spring/beans/autowirebytype.xml");
 
         Logger logger = (Logger) context.getBean("autowirebytype");
 
@@ -180,15 +183,34 @@ public final class App {
      *  Autowire classes using autowirebytype.xml.
      */
     public void autowirebyname() {
+
         /** A Spring bean container. */
         final ApplicationContext context =
                 new FileSystemXmlApplicationContext(
-                        "src/main/java/com/spring/beans/autowirebyname.xml");
+            "src/main/java/com/spring/beans/autowirebyname.xml");
 
         Logger2 logger = (Logger2) context.getBean("autowirebyname");
 
         logger.writeConsole("Autowire by name");
         logger.writeFile("Autowire by name");
+
+        ((FileSystemXmlApplicationContext) context).close();
+    }
+
+    /**
+     *  Autowire classes using autowirebytype.xml.
+     */
+    public void autowirebyconstructor() {
+
+        /** A Spring bean container. */
+        final ApplicationContext context =
+                new FileSystemXmlApplicationContext(
+        "src/main/java/com/spring/beans/autowirebyconstructor.xml");
+
+        Logger3 logger = (Logger3) context.getBean("autowirebyconstructor");
+
+        logger.writeConsole("Autowire by constructor");
+        logger.writeFile("Autowire by constructor");
 
         ((FileSystemXmlApplicationContext) context).close();
     }

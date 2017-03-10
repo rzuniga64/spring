@@ -1,16 +1,28 @@
-package com.spring.autowirebyname;
+package com.spring.autowirebyconstructor;
 
 /**
  *  Dummy implementation of Logger3 class.
  *  We need to wire the ConsoleWriter and FileWriter beans into this class.
  *  We have two properties of the same type that we want to autowire with beans.
  */
-public class Logger2 {
+public class Logger3 {
 
     /** Consoler writer. */
     private LogWriter consoleWriter;
     /** File writer. */
     private LogWriter fileWriter;
+
+    /**
+     * Constructor so classes can be autowired by constructor.
+     * @param consoleWriter consoleWriter
+     * @param fileWriter fileWriter
+     */
+    public Logger3(final ConsoleWriter consoleWriter,
+                   final FileWriter fileWriter) {
+
+        this.consoleWriter = consoleWriter;
+        this.fileWriter = fileWriter;
+    }
 
     /**
      *  Set the consoleWriter.

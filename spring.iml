@@ -24,6 +24,7 @@
           <file>file://$MODULE_DIR$/src/main/java/com/spring/beans/propertymap.xml</file>
           <file>file://$MODULE_DIR$/src/main/java/com/spring/beans/logger.xml</file>
           <file>file://$MODULE_DIR$/src/main/java/com/spring/beans/autowirebyname.xml</file>
+          <file>file://$MODULE_DIR$/src/main/java/com/spring/beans/autowirebyconstructor.xml</file>
         </fileset>
       </configuration>
     </facet>
