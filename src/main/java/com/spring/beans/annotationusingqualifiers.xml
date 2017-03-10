@@ -11,11 +11,11 @@
 
     <bean id="annotationusingqualifiers"
           class="com.spring.annotationusingqualifiers.Logger7">
-        <qualifier value="toconsole"></qualifier>
     </bean>
 
     <bean id="consoleWriter"
           class="com.spring.annotationusingqualifiers.ConsoleWriter">
+        <qualifier value="ConsoleWriter"></qualifier>
     </bean>
 
     <bean id="squirrel"

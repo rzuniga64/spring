@@ -39,7 +39,7 @@ public class Logger7 {
      *  @param writer writer
      */
     @Autowired
-    @Qualifier("toconsole")
+    @Qualifier("ConsoleWriter")
     public void setConsoleWriter(final ConsoleWriter writer) {
         this.consoleWriter = writer;
     }
