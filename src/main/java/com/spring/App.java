@@ -1,5 +1,8 @@
 package com.spring;
 
+import com.spring.annotationautowire.Logger6;
+import com.spring.annotationusingqualifiers.Logger7;
+import com.spring.autowirearemovembiguities.Logger5;
 import com.spring.autowirebyconstructor.Logger3;
 import com.spring.autowirebydefault.Logger4;
 import com.spring.autowirebyname.Logger2;
@@ -73,6 +76,9 @@ public final class App {
         app.autowirebyname();
         app.autowirebyconstructor();
         app.autowirebydefault();
+        app.autowireremoveambiguities();
+        app.annotationwiring();
+        app.annotationusingqualifiers();
 
         ((FileSystemXmlApplicationContext) App.context).close();
         ((FileSystemXmlApplicationContext) App.junglebean).close();
@@ -120,7 +126,7 @@ public final class App {
      *  Set list properties using bean.xml.
      *  Example of setting list properties using a bean.xml.
      */
-    public void settingListProperties() {
+    private void settingListProperties() {
 
         FruitBasket basket = (FruitBasket) App.context.getBean("basket");
 
@@ -129,7 +135,7 @@ public final class App {
     /**
      *  Create a list of beans using a junglebean.xml.
      */
-    public void listOfBeans() {
+    private void listOfBeans() {
 
         Jungle jungle = (Jungle) App.junglebean.getBean("jungle");
         System.out.println(jungle);
@@ -138,9 +144,9 @@ public final class App {
     /**
      *  Create a list of beans using jungleinnerbeans.xml.
      */
-    public void innerBeans() {
+    private void innerBeans() {
 
-        /** A Spring bean container. */
+        // A Spring bean container.
         final ApplicationContext jungleinnerbeans =
                 new FileSystemXmlApplicationContext(
             "src/main/java/com/spring/beans/jungleinnerbean.xml");
@@ -154,7 +160,7 @@ public final class App {
     /**
      *  Create a list of beans using propertymap.xml.
      */
-    public void propertymap() {
+    private void propertymap() {
 
         /** A Spring bean container. */
         final ApplicationContext context =
@@ -170,7 +176,7 @@ public final class App {
     /**
      *  Autowire classes using autowirebytype.xml.
      */
-    public void autowirebytype() {
+    private void autowirebytype() {
 
         /** A Spring bean container. */
         final ApplicationContext context =
@@ -188,7 +194,7 @@ public final class App {
     /**
      *  Autowire classes using autowirebyname.xml.
      */
-    public void autowirebyname() {
+    private void autowirebyname() {
 
         /** A Spring bean container. */
         final ApplicationContext context =
@@ -206,7 +212,7 @@ public final class App {
     /**
      *  Autowire classes using autowirebyconsctructor.xml.
      */
-    public void autowirebyconstructor() {
+    private void autowirebyconstructor() {
 
         /** A Spring bean container. */
         final ApplicationContext context =
@@ -224,7 +230,7 @@ public final class App {
     /**
      *  Autowire classes using autowirebydefault.xml.
      */
-    public void autowirebydefault() {
+    private void autowirebydefault() {
 
         /** A Spring bean container. */
         final ApplicationContext context =
@@ -235,6 +241,60 @@ public final class App {
 
         logger.writeConsole("Autowire by default");
         logger.writeFile("Autowire by default");
+
+        ((FileSystemXmlApplicationContext) context).close();
+    }
+
+    /**
+     *  Autowire classes using autowirebydefault.xml.
+     */
+    private void autowireremoveambiguities() {
+
+        /** A Spring bean container. */
+        final ApplicationContext context =
+                new FileSystemXmlApplicationContext(
+            "src/main/java/com/spring/beans/autowireremoveambiguities.xml");
+
+        Logger5 logger = (Logger5) context.getBean("autowireremoveambiguities");
+
+        logger.writeConsole("Autowire remove ambiguities");
+        logger.writeFile("Autowire remove ambiguities");
+
+        ((FileSystemXmlApplicationContext) context).close();
+    }
+
+    /**
+     *  Autowire classes using autowirebydefault.xml.
+     */
+    private void annotationwiring() {
+
+        /** A Spring bean container. */
+        final ApplicationContext context =
+                new FileSystemXmlApplicationContext(
+        "src/main/java/com/spring/beans/annotationautowire.xml");
+
+        Logger6 logger = (Logger6) context.getBean("annotationwiring");
+
+        logger.writeConsole("Annotation autowire");
+        logger.writeFile("Annotation autowire");
+
+        ((FileSystemXmlApplicationContext) context).close();
+    }
+
+    /**
+     *  Autowire classes using autowirebydefault.xml.
+     */
+    private void annotationusingqualifiers() {
+
+        /** A Spring bean container. */
+        final ApplicationContext context =
+                new FileSystemXmlApplicationContext(
+        "src/main/java/com/spring/beans/annotationusingqualifiers.xml");
+
+        Logger7 logger = (Logger7) context.getBean("annotationusingqualifiers");
+
+        logger.writeConsole("Annotation using qualifiers");
+        logger.writeFile("Annotation using qualifiers");
 
         ((FileSystemXmlApplicationContext) context).close();
     }
