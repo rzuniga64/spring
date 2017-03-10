@@ -1,6 +1,7 @@
 package com.spring;
 
 import com.spring.annotationautowire.Logger6;
+import com.spring.annotationresource.Logger8;
 import com.spring.annotationusingqualifiers.Logger7;
 import com.spring.autowirearemovembiguities.Logger5;
 import com.spring.autowirebyconstructor.Logger3;
@@ -79,6 +80,7 @@ public final class App {
         app.autowireremoveambiguities();
         app.annotationwiring();
         app.annotationusingqualifiers();
+        app.annotationresource();
 
         ((FileSystemXmlApplicationContext) App.context).close();
         ((FileSystemXmlApplicationContext) App.junglebean).close();
@@ -295,6 +297,24 @@ public final class App {
 
         logger.writeConsole("Annotation using qualifiers");
         logger.writeFile("Annotation using qualifiers");
+
+        ((FileSystemXmlApplicationContext) context).close();
+    }
+
+    /**
+     *  Resource annotations using annotationsresource.xml.
+     */
+    private void annotationresource() {
+
+        /** A Spring bean container. */
+        final ApplicationContext context =
+                new FileSystemXmlApplicationContext(
+                        "src/main/java/com/spring/beans/annotationresource.xml");
+
+        Logger8 logger = (Logger8) context.getBean("annotationresource");
+
+        logger.writeConsole("Annotation resource");
+        logger.writeFile("Annotation resource");
 
         ((FileSystemXmlApplicationContext) context).close();
     }
