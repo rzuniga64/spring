@@ -1,8 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean id="person"
-          class="com.spring.intro.Person">
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd"
+        default-init-method="init" default-destroy-method="destroy">
+
+    <bean id="person" class="com.spring.intro.Person"
+          scope="singleton" init-method="onCreate" destroy-method="onDestroy"
+            factory-method="getInstance">
+        <constructor-arg name="newId" type="int" value="777"></constructor-arg>
+        <constructor-arg
+                name="newName" type="java.lang.String" value="Raul">
+        </constructor-arg>
+        <property name="taxId" value="123"></property>
+
+        <!-- An example of dependency injection -->
+        <property name="address" ref="address"></property>
     </bean>
+
+    <!-- create the bean using a bean factory and bean method -->
+    <bean id="person2" class="com.spring.intro.Person"
+          scope="singleton" init-method="onCreate" destroy-method="onDestroy"
+          factory-method="createPerson" factory-bean="personfactory">
+
+        <constructor-arg name="newId" type="int" value="321">
+        </constructor-arg>
+        <constructor-arg
+                name="newName" type="java.lang.String" value="Randy" >
+        </constructor-arg>
+        <property name="taxId" value="321"></property>
+        <property name="address" ref="address"></property>
+    </bean>
+
+    <bean id="address" class="com.spring.intro.Address">
+        <constructor-arg
+                name="newStreet" value="1000 Main Street">
+        </constructor-arg>
+        <constructor-arg name="newPostcode" value="78701"></constructor-arg>
+    </bean>
+
+    <!-- p namespace is alternative to using property tags -->
+    <bean id="address2" class="com.spring.intro.Address"
+          p:street="1901A Woodland Avenue" p:postcode="78741">
+    </bean>
+
+    <bean id="personfactory"
+          class="com.spring.intro.PersonFactory">
+    </bean>
+
+    <bean id="basket" class="com.spring.intro.FruitBasket">
+        <constructor-arg name="newName" value="Fruit basket" ></constructor-arg>
+        <constructor-arg>
+            <list>
+                <value>apple</value>
+                <value>orange</value>
+                <value>banana</value>
+                <value>watermelon</value>
+                <value>strawberry</value>
+            </list>
+        </constructor-arg>
+    </bean>
+
 </beans>

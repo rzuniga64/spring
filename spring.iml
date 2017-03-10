@@ -16,7 +16,16 @@
       </configuration>
     </facet>
     <facet type="Spring" name="Spring">
-      <configuration />
+      <configuration>
+        <fileset id="fileset" name="Spring Application Context" removed="false">
+          <file>file://$MODULE_DIR$/src/main/java/com/spring/beans/applicationContext.xml</file>
+          <file>file://$MODULE_DIR$/src/main/java/com/spring/beans/animal_bean.xml</file>
+          <file>file://$MODULE_DIR$/src/main/java/com/spring/beans/jungleinnerbean.xml</file>
+          <file>file://$MODULE_DIR$/src/main/java/com/spring/beans/propertymap.xml</file>
+          <file>file://$MODULE_DIR$/src/main/java/com/spring/beans/logger.xml</file>
+          <file>file://$MODULE_DIR$/src/main/java/com/spring/beans/autowirebyname.xml</file>
+        </fileset>
+      </configuration>
     </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_5" inherit-compiler-output="false">
