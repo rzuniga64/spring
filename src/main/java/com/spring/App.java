@@ -1,8 +1,12 @@
-package com.spring.intro;
+package com.spring;
 
 import com.spring.autowirebyconstructor.Logger3;
 import com.spring.autowirebyname.Logger2;
 import com.spring.autowirebytype.Logger;
+import com.spring.intro.Address;
+import com.spring.intro.FruitBasket;
+import com.spring.intro.Jungle;
+import com.spring.intro.Person;
 import com.spring.propertymaps.JungleFoods;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
