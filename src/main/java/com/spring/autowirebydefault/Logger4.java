@@ -1,11 +1,11 @@
-package com.spring.autowirebyname;
+package com.spring.autowirebydefault;
 
 /**
  *  Dummy implementation of Logger4 class.
  *  We need to wire the ConsoleWriter and FileWriter beans into this class.
  *  We have two properties of the same type that we want to autowire with beans.
  */
-public class Logger2 {
+public class Logger4 {
 
     /** Consoler writer. */
     private LogWriter consoleWriter;

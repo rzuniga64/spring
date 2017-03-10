@@ -1,6 +1,7 @@
 package com.spring;
 
 import com.spring.autowirebyconstructor.Logger3;
+import com.spring.autowirebydefault.Logger4;
 import com.spring.autowirebyname.Logger2;
 import com.spring.autowirebytype.Logger;
 import com.spring.intro.Address;
@@ -71,6 +72,7 @@ public final class App {
         app.autowirebytype();
         app.autowirebyname();
         app.autowirebyconstructor();
+        app.autowirebydefault();
 
         ((FileSystemXmlApplicationContext) App.context).close();
         ((FileSystemXmlApplicationContext) App.junglebean).close();
@@ -184,7 +186,7 @@ public final class App {
     }
 
     /**
-     *  Autowire classes using autowirebytype.xml.
+     *  Autowire classes using autowirebyname.xml.
      */
     public void autowirebyname() {
 
@@ -202,7 +204,7 @@ public final class App {
     }
 
     /**
-     *  Autowire classes using autowirebytype.xml.
+     *  Autowire classes using autowirebyconsctructor.xml.
      */
     public void autowirebyconstructor() {
 
@@ -215,6 +217,24 @@ public final class App {
 
         logger.writeConsole("Autowire by constructor");
         logger.writeFile("Autowire by constructor");
+
+        ((FileSystemXmlApplicationContext) context).close();
+    }
+
+    /**
+     *  Autowire classes using autowirebydefault.xml.
+     */
+    public void autowirebydefault() {
+
+        /** A Spring bean container. */
+        final ApplicationContext context =
+                new FileSystemXmlApplicationContext(
+        "src/main/java/com/spring/beans/autowirebydefault.xml");
+
+        Logger4 logger = (Logger4) context.getBean("autowirebydefault");
+
+        logger.writeConsole("Autowire by default");
+        logger.writeFile("Autowire by default");
 
         ((FileSystemXmlApplicationContext) context).close();
     }

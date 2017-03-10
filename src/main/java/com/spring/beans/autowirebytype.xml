@@ -5,10 +5,10 @@
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!-- This is an example of autowriring by type We want to inject
-         two classes into the Logger3 class that are of different types.
+         two classes into the Logger4 class that are of different types.
          Not recommended if the application huge with classes and lots
          of dependencies. Second problem is there can be no ambiguuity
-         with class names. Third problem is if more than one of the Logger3
+         with class names. Third problem is if more than one of the Logger4
          methods uses an interface type in its parameter list then there would
          be ambiguity.
     -->

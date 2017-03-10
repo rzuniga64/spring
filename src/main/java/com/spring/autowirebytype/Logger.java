@@ -1,7 +1,7 @@
 package com.spring.autowirebytype;
 
 /**
- *  Dummy implementation of Logger3 class.
+ *  Dummy implementation of Logger4 class.
  *  We need to wire the ConsoleWriter and FileWriter beans into this class.
  */
 public class Logger {
