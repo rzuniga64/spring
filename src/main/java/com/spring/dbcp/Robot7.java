@@ -1,4 +1,4 @@
-package com.spring.props;
+package com.spring.dbcp;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
  *  Robot class.
  */
 @Component
-public class Robot5 {
+public class Robot7 {
 
     /** ID. */
     private String id = "Default robot";

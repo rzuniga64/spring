@@ -25,7 +25,7 @@ public class Robot6 {
      *  @param newId newId
      */
     @Autowired
-    public void setId(final @Value("${jdbc.user}") String newId) {
+    public void setId(final @Value("${jdbc.username}") String newId) {
         this.id = newId;
     }
 

@@ -12,6 +12,7 @@ import com.spring.autowirebyname.Logger2;
 import com.spring.autowirebytype.Logger;
 import com.spring.annotationinitdestroy.Logger9;
 import com.spring.daopattern.Robot6;
+import com.spring.dbcp.Robot7;
 import com.spring.intro.Address;
 import com.spring.intro.FruitBasket;
 import com.spring.intro.Jungle;
@@ -97,6 +98,7 @@ public final class App {
         app.speloperators();
         app.usepropertyfile();*/
         app.daopattern();
+        //app.dbcp();
 
         ((FileSystemXmlApplicationContext) App.context).close();
         ((FileSystemXmlApplicationContext) App.junglebean).close();
@@ -469,9 +471,26 @@ public final class App {
         /** A Spring bean container. */
         final ApplicationContext context =
                 new FileSystemXmlApplicationContext(
-                        "src/main/java/com/spring/beans/usepropertyfile.xml");
+                        "src/main/java/com/spring/beans/daopattern.xml");
 
-        Robot6 robot = (Robot6) context.getBean("usepropertyfile");
+        Robot6 robot = (Robot6) context.getBean("daopattern");
+
+        robot.speak();
+
+        ((FileSystemXmlApplicationContext) context).close();
+    }
+
+    /**
+     *  Implement a dbcp.
+     */
+    private void dbcp() {
+
+        /** A Spring bean container. */
+        final ApplicationContext context =
+                new FileSystemXmlApplicationContext(
+                        "src/main/java/com/spring/beans/dbcp.xml");
+
+        Robot7 robot = (Robot7) context.getBean("dbcp");
 
         robot.speak();
 
