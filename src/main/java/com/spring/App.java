@@ -17,6 +17,9 @@ import com.spring.intro.Address;
 import com.spring.intro.FruitBasket;
 import com.spring.intro.Jungle;
 import com.spring.intro.Person;
+import com.spring.models.Offer;
+import com.spring.models.OffersDAO;
+import com.spring.models.OffersDAO2;
 import com.spring.propertymaps.JungleFoods;
 import com.spring.props.Robot5;
 import com.spring.spel.Robot2;
@@ -24,6 +27,10 @@ import com.spring.spelannotations.Robot3;
 import com.spring.speloperators.Robot4;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
+import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.CannotGetJdbcConnectionException;
+
+import java.util.List;
 
 /**
  *  Application class.
@@ -84,9 +91,12 @@ public final class App {
         app.spel();
         app.spelannotations();
         app.speloperators();
-        app.usepropertyfile();*/
+        app.usepropertyfile();
         app.daopattern();
-        //app.dbcp();
+        app.dbcp();
+        app.databasequery();
+        app.databaexception();*/
+        app.namedparameters();
     }
 
     /**
@@ -502,6 +512,80 @@ public final class App {
         Robot7 robot = (Robot7) context.getBean("dbcp");
 
         robot.speak();
+
+        ((FileSystemXmlApplicationContext) context).close();
+    }
+
+    /**
+     *  Query the database.
+     */
+    private void databasequery() {
+
+        /** A Spring bean container. */
+        final ApplicationContext context =
+                new FileSystemXmlApplicationContext(
+                        "src/main/java/com/spring/beans/dbcp.xml");
+
+        OffersDAO offersDAO = (OffersDAO) context.getBean("offersDao");
+
+        List<Offer> offers = offersDAO.getOffers();
+
+        for (Offer offer: offers) {
+            System.out.println(offer);
+        }
+
+        ((FileSystemXmlApplicationContext) context).close();
+    }
+
+    /**
+     *  Query the database.
+     */
+    private void databaexception() {
+
+        /** A Spring bean container. */
+        final ApplicationContext context =
+                new FileSystemXmlApplicationContext(
+                        "src/main/java/com/spring/beans/dbcp.xml");
+
+        OffersDAO offersDAO = (OffersDAO) context.getBean("offersDao");
+
+        try {
+            List<Offer> offers = offersDAO.getOffers();
+
+            for (Offer offer : offers) {
+                System.out.println(offer);
+            }
+        } catch (CannotGetJdbcConnectionException ex) {
+                System.out.println("Cannot get database connection.");
+        } catch (DataAccessException ex) {
+                System.out.println(ex.getMessage());
+                System.out.println(ex.getClass());
+        }
+
+        ((FileSystemXmlApplicationContext) context).close();
+    }
+
+    /**
+     *  Query the database.
+     */
+    private void namedparameters() {
+
+        /** A Spring bean container. */
+        final ApplicationContext context =
+                new FileSystemXmlApplicationContext(
+                        "src/main/java/com/spring/beans/dbcp.xml");
+
+        OffersDAO2 offersDAO2 = (OffersDAO2) context.getBean("offersDao2");
+
+        List<Offer> offers = offersDAO2.getOffers();
+
+        for (Offer offer: offers) {
+            System.out.println(offer);
+        }
+
+        Offer offer = offersDAO2.getOffer(2);
+
+        System.out.println("Should be Mike: " + offer);
 
         ((FileSystemXmlApplicationContext) context).close();
     }
