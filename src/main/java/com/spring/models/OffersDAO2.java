@@ -88,4 +88,16 @@ public class OffersDAO2 {
             }
         });
     }
+
+    /**
+     * Delete a row based on id.
+     * @param id id
+     * @return true if row is deleted; false otherwise.
+     */
+    public boolean delete(final int id) {
+
+        MapSqlParameterSource params = new MapSqlParameterSource("id", id);
+
+        return jdbc.update("delete from offers where id =:id", params) == 1;
+    }
 }

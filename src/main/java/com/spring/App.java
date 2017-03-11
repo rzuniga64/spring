@@ -95,8 +95,9 @@ public final class App {
         app.daopattern();
         app.dbcp();
         app.databasequery();
-        app.databaexception();*/
-        app.namedparameters();
+        app.databaexception();
+        app.namedparameters();*/
+        app.updatestatements();
     }
 
     /**
@@ -586,6 +587,36 @@ public final class App {
         Offer offer = offersDAO2.getOffer(2);
 
         System.out.println("Should be Mike: " + offer);
+
+        ((FileSystemXmlApplicationContext) context).close();
+    }
+
+    /**
+     *  Query the database.
+     */
+    private void updatestatements() {
+
+        /** A Spring bean container. */
+        final ApplicationContext context =
+                new FileSystemXmlApplicationContext(
+                        "src/main/java/com/spring/beans/dbcp.xml");
+
+        OffersDAO2 offersDAO2 = (OffersDAO2) context.getBean("offersDao2");
+
+        try {
+            offersDAO2.delete(3);
+
+            List<Offer> offers = offersDAO2.getOffers();
+
+            for (Offer offer: offers) {
+                System.out.println(offer);
+            }
+        } catch (CannotGetJdbcConnectionException ex) {
+            System.out.println("Cannot get database connection.");
+        } catch (DataAccessException ex) {
+            System.out.println(ex.getMessage());
+            System.out.println(ex.getClass());
+        }
 
         ((FileSystemXmlApplicationContext) context).close();
     }
