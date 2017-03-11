@@ -55,18 +55,6 @@ import org.springframework.context.support.FileSystemXmlApplicationContext;
  */
 public final class App {
 
-    /** Create a Spring beans container. You can place the beans container
-     * anywhere in the application using FileSystemXmlApplicationContext.
-     */
-    private static final ApplicationContext context =
-            new FileSystemXmlApplicationContext(
-        "src/main/java/com/spring/beans/applicationContext.xml");
-
-    /** A Spring bean container. */
-     private static final ApplicationContext junglebean =
-            new FileSystemXmlApplicationContext(
-        "src/main/java/com/spring/beans/junglebean.xml");
-
     /** Default constructor. */
     private App() { }
 
@@ -99,9 +87,6 @@ public final class App {
         app.usepropertyfile();*/
         app.daopattern();
         //app.dbcp();
-
-        ((FileSystemXmlApplicationContext) App.context).close();
-        ((FileSystemXmlApplicationContext) App.junglebean).close();
     }
 
     /**
@@ -116,13 +101,20 @@ public final class App {
      */
     private void basicBeanConfiguration() {
 
+        /** Create a Spring beans container. You can place the beans container
+         * anywhere in the application using FileSystemXmlApplicationContext.
+         */
+        final ApplicationContext context =
+                new FileSystemXmlApplicationContext(
+        "src/main/java/com/spring/beans/applicationContext.xml");
+
         // The address object is injected into the person object using the ref
         // property in the bean.xml
-        Address address = (Address) App.context.getBean("address");
+        Address address = (Address) context.getBean("address");
         //System.out.println(address);
 
         // Use p namespace in bean.xml to set address properties.
-        Address address2 = (Address) App.context.getBean("address2");
+        Address address2 = (Address) context.getBean("address2");
         System.out.println("Address using p namespace: " + address2);
 
         // Use the Spring beans container, context, to get beans from it.
@@ -130,8 +122,8 @@ public final class App {
         // finds the Person class mentioned in the xml file and instantiates it.
         // Then we can fetch the object from the ApplicationContext and call
         // methods on the object.
-        Person person = (Person) App.context.getBean("person");
-        Person person2 = (Person) App.context.getBean("person");
+        Person person = (Person) context.getBean("person");
+        Person person2 = (Person) context.getBean("person");
 
         // Tax id get set for person if scope is prototype in bean.xml.
         // Tax id is et for every person if scope is set to singleton.
@@ -140,6 +132,8 @@ public final class App {
         System.out.println(person);
         System.out.println();
         System.out.println(person2);
+
+        ((FileSystemXmlApplicationContext) context).close();
     }
 
     /**
@@ -148,8 +142,16 @@ public final class App {
      */
     private void settingListProperties() {
 
-        FruitBasket basket = (FruitBasket) App.context.getBean("basket");
+        /** Create a Spring beans container. You can place the beans container
+         * anywhere in the application using FileSystemXmlApplicationContext.
+         */
+        final ApplicationContext context =
+                new FileSystemXmlApplicationContext(
+        "src/main/java/com/spring/beans/applicationContext.xml");
 
+        FruitBasket basket = (FruitBasket) context.getBean("basket");
+
+        ((FileSystemXmlApplicationContext) context).close();
     }
 
     /**
@@ -157,8 +159,15 @@ public final class App {
      */
     private void listOfBeans() {
 
-        Jungle jungle = (Jungle) App.junglebean.getBean("jungle");
+        /** A Spring bean container. */
+        final ApplicationContext junglebean =
+                new FileSystemXmlApplicationContext(
+                "src/main/java/com/spring/beans/junglebean.xml");
+
+        Jungle jungle = (Jungle) junglebean.getBean("jungle");
         System.out.println(jungle);
+
+        ((FileSystemXmlApplicationContext) junglebean).close();
     }
 
     /**
