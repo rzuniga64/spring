@@ -3,6 +3,7 @@ package com.spring;
 import com.spring.annotationautowire.Logger6;
 import com.spring.annotationresource.Logger8;
 import com.spring.annotationusingqualifiers.Logger7;
+import com.spring.annotoationsetpropertyvalues.Robot;
 import com.spring.autobeandiscovery.Logger10;
 import com.spring.autowirearemovembiguities.Logger5;
 import com.spring.autowirebyconstructor.Logger3;
@@ -15,6 +16,7 @@ import com.spring.intro.FruitBasket;
 import com.spring.intro.Jungle;
 import com.spring.intro.Person;
 import com.spring.propertymaps.JungleFoods;
+import com.spring.spel.Robot2;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 
@@ -85,6 +87,8 @@ public final class App {
         app.annotationresource();
         app.annotationinitdestroy();
         app.automaticbeandiscovery();
+        app.annotationsetpropertyvalues();
+        app.spel();
 
         ((FileSystemXmlApplicationContext) App.context).close();
         ((FileSystemXmlApplicationContext) App.junglebean).close();
@@ -355,6 +359,42 @@ public final class App {
 
         logger.writeConsole("Automatic bean discovery");
         logger.writeFile("Automatic bean discovery");
+
+        ((FileSystemXmlApplicationContext) context).close();
+    }
+
+    /**
+     *  Set property values using annotations and
+     *  annotationssetpropertyvalues.xml.
+     */
+    private void annotationsetpropertyvalues() {
+
+        /** A Spring bean container. */
+        final ApplicationContext context =
+                new FileSystemXmlApplicationContext(
+        "src/main/java/com/spring/beans/annotationsetpropertyvalues.xml");
+
+        Robot robot = (Robot) context.getBean("annotationsetpropertyvalues");
+
+        robot.speak();
+
+        ((FileSystemXmlApplicationContext) context).close();
+    }
+
+    /**
+     *  Set property values using annotations and
+     *  annotationssetpropertyvalues.xml.
+     */
+    private void spel() {
+
+        /** A Spring bean container. */
+        final ApplicationContext context =
+                new FileSystemXmlApplicationContext(
+                        "src/main/java/com/spring/beans/spel.xml");
+
+        Robot2 robot = (Robot2) context.getBean("spel");
+
+        robot.speak();
 
         ((FileSystemXmlApplicationContext) context).close();
     }
