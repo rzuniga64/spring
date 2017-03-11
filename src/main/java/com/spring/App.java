@@ -11,11 +11,13 @@ import com.spring.autowirebydefault.Logger4;
 import com.spring.autowirebyname.Logger2;
 import com.spring.autowirebytype.Logger;
 import com.spring.annotationinitdestroy.Logger9;
+import com.spring.daopattern.Robot6;
 import com.spring.intro.Address;
 import com.spring.intro.FruitBasket;
 import com.spring.intro.Jungle;
 import com.spring.intro.Person;
 import com.spring.propertymaps.JungleFoods;
+import com.spring.props.Robot5;
 import com.spring.spel.Robot2;
 import com.spring.spelannotations.Robot3;
 import com.spring.speloperators.Robot4;
@@ -74,7 +76,7 @@ public final class App {
     public static void main(final String[] args) {
 
         App app = new App();
-        app.basicBeanConfiguration();
+        /**app.basicBeanConfiguration();
         app.settingListProperties();
         app.listOfBeans();
         app.innerBeans();
@@ -93,6 +95,8 @@ public final class App {
         app.spel();
         app.spelannotations();
         app.speloperators();
+        app.usepropertyfile();*/
+        app.daopattern();
 
         ((FileSystemXmlApplicationContext) App.context).close();
         ((FileSystemXmlApplicationContext) App.junglebean).close();
@@ -433,6 +437,41 @@ public final class App {
             "src/main/java/com/spring/beans/speloperators.xml");
 
         Robot4 robot = (Robot4) context.getBean("speloperators");
+
+        robot.speak();
+
+        ((FileSystemXmlApplicationContext) context).close();
+    }
+
+    /**
+     *  Set property values using spel annotations and
+     *  spelannotations.xml.
+     */
+    private void usepropertyfile() {
+
+        /** A Spring bean container. */
+        final ApplicationContext context =
+                new FileSystemXmlApplicationContext(
+            "src/main/java/com/spring/beans/usepropertyfile.xml");
+
+        Robot5 robot = (Robot5) context.getBean("usepropertyfile");
+
+        robot.speak();
+
+        ((FileSystemXmlApplicationContext) context).close();
+    }
+
+    /**
+     *  Implement the dao pattern.
+     */
+    private void daopattern() {
+
+        /** A Spring bean container. */
+        final ApplicationContext context =
+                new FileSystemXmlApplicationContext(
+                        "src/main/java/com/spring/beans/usepropertyfile.xml");
+
+        Robot6 robot = (Robot6) context.getBean("usepropertyfile");
 
         robot.speak();
 
