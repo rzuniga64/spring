@@ -1,17 +1,21 @@
-package com.spring.spel;
+package com.spring.spelannotations;
+
+import org.springframework.stereotype.Component;
 
 import java.util.Random;
 
 /**
  *  RandomText class.
  */
+@Component
 public class RandomText {
 
     /** Array of strings. */
     private static String[] texts = {
-            "I'll be back",
-            "Get out!",
-            "I want your clothes, boots and motorcycle."
+            "I don't know my name",
+            "Beautiful thing",
+            "Clay",
+            null
     };
 
     /**
