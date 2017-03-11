@@ -18,6 +18,7 @@ import com.spring.intro.Person;
 import com.spring.propertymaps.JungleFoods;
 import com.spring.spel.Robot2;
 import com.spring.spelannotations.Robot3;
+import com.spring.speloperators.Robot4;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 
@@ -91,6 +92,7 @@ public final class App {
         app.annotationsetpropertyvalues();
         app.spel();
         app.spelannotations();
+        app.speloperators();
 
         ((FileSystemXmlApplicationContext) App.context).close();
         ((FileSystemXmlApplicationContext) App.junglebean).close();
@@ -413,6 +415,24 @@ public final class App {
             "src/main/java/com/spring/beans/spelannotations.xml");
 
         Robot3 robot = (Robot3) context.getBean("spelannotations");
+
+        robot.speak();
+
+        ((FileSystemXmlApplicationContext) context).close();
+    }
+
+    /**
+     *  Set property values using spel annotations and
+     *  spelannotations.xml.
+     */
+    private void speloperators() {
+
+        /** A Spring bean container. */
+        final ApplicationContext context =
+                new FileSystemXmlApplicationContext(
+            "src/main/java/com/spring/beans/speloperators.xml");
+
+        Robot4 robot = (Robot4) context.getBean("speloperators");
 
         robot.speak();
 
