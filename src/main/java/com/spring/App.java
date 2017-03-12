@@ -30,6 +30,7 @@ import org.springframework.context.support.FileSystemXmlApplicationContext;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.CannotGetJdbcConnectionException;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -98,8 +99,9 @@ public final class App {
         app.databaexception();
         app.namedparameters();
         app.updatestatements();
-        app.getplaceholdervaluesfrombean();*/
-        app.update();
+        app.getplaceholdervaluesfrombean();
+        app.update();*/
+        app.batchupdate();
     }
 
     /**
@@ -689,6 +691,55 @@ public final class App {
             for (Offer offer : offers) {
                 System.out.println(offer);
             }
+        } catch (CannotGetJdbcConnectionException ex) {
+            System.out.println("Cannot get database connection.");
+        } catch (DataAccessException ex) {
+            System.out.println(ex.getMessage());
+            System.out.println(ex.getClass());
+        }
+
+        ((FileSystemXmlApplicationContext) context).close();
+    }
+
+    /**
+     *  Example of batch updating Offer objects in the database using Spring
+     *  (not JDBC).
+     */
+    private void batchupdate() {
+
+        /** A Spring bean container. */
+        final ApplicationContext context =
+                new FileSystemXmlApplicationContext(
+                        "src/main/java/com/spring/beans/dbcp.xml");
+
+        OffersDAO2 offersDao = (OffersDAO2) context.getBean("offersDao2");
+
+        try {
+
+            List<Offer> offersList = new ArrayList<Offer>();
+
+            offersList.add(new Offer("Dave",
+                                     "dave@caveofprogramming.com",
+                                     "Cash for software."));
+            offersList.add(new Offer("Karen",
+                                     "karen@caveofprogramming.com",
+                                     "Elegant web design"));
+
+            int[] rvals = offersDao.create(offersList);
+
+            for (int value: rvals) {
+                System.out.println("Updated " + value + " rows.");
+            }
+
+            List<Offer> offers = offersDao.getOffers();
+
+            for (Offer offer : offers) {
+                System.out.println(offer);
+            }
+
+            Offer offer = offersDao.getOffer(2);
+
+            System.out.println("Should be Mike: " + offer);
         } catch (CannotGetJdbcConnectionException ex) {
             System.out.println("Cannot get database connection.");
         } catch (DataAccessException ex) {

@@ -1,9 +1,7 @@
 package com.spring.models;
 
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
-import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
-import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.core.namedparam.*;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -130,7 +128,21 @@ public class OffersDAO2 {
         BeanPropertySqlParameterSource params =
                 new BeanPropertySqlParameterSource(offer);
 
-        return jdbc.update("update offers set name=:name, email=:email, " +
-                "               text:=text where id=:id", params) == 1;
+        return jdbc.update("update offers set name=:name, email=:email,"
+                              + "text:=text where id=:id", params) == 1;
+    }
+
+    /**
+     * Batch update Offer objects in the database using Spring (not JDBC).
+     * @param offers offers
+     * @return an array of integers
+     */
+    public int[] create(final List<Offer> offers) {
+
+        SqlParameterSource[] params =
+                SqlParameterSourceUtils.createBatch(offers.toArray());
+
+        return jdbc.batchUpdate("insert into offers (name, text, email)"
+                                   + "values (:name, :text, :email)", params);
     }
 }
