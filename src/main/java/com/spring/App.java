@@ -96,8 +96,10 @@ public final class App {
         app.dbcp();
         app.databasequery();
         app.databaexception();
-        app.namedparameters();*/
+        app.namedparameters();
         app.updatestatements();
+        app.getplaceholdervaluesfrombean();*/
+        app.update();
     }
 
     /**
@@ -592,7 +594,7 @@ public final class App {
     }
 
     /**
-     *  Query the database.
+     *  Example of deleting an Offer object from the database.
      */
     private void updatestatements() {
 
@@ -609,6 +611,82 @@ public final class App {
             List<Offer> offers = offersDAO2.getOffers();
 
             for (Offer offer: offers) {
+                System.out.println(offer);
+            }
+        } catch (CannotGetJdbcConnectionException ex) {
+            System.out.println("Cannot get database connection.");
+        } catch (DataAccessException ex) {
+            System.out.println(ex.getMessage());
+            System.out.println(ex.getClass());
+        }
+
+        ((FileSystemXmlApplicationContext) context).close();
+    }
+
+    /**
+     *  Example of getting placeholder values from a bean.
+     */
+    private void getplaceholdervaluesfrombean() {
+
+        /** A Spring bean container. */
+        final ApplicationContext context =
+                new FileSystemXmlApplicationContext(
+                        "src/main/java/com/spring/beans/dbcp.xml");
+
+        OffersDAO2 offersDao = (OffersDAO2) context.getBean("offersDao2");
+
+        try {
+
+            Offer offer1 = new Offer("Dave",
+                    "dave@hotmail.com", "Coding Java");
+            Offer offer2 = new Offer("Karen",
+                    "karen@hotmail.com", "UI/UX Designer");
+
+            if (offersDao.create(offer1) && offersDao.create(offer2)) {
+                System.out.println("Created Offer objects.");
+            }
+
+            List<Offer> offers = offersDao.getOffers();
+
+            for (Offer offer : offers) {
+                System.out.println(offer);
+            }
+        } catch (CannotGetJdbcConnectionException ex) {
+            System.out.println("Cannot get database connection.");
+        } catch (DataAccessException ex) {
+            System.out.println(ex.getMessage());
+            System.out.println(ex.getClass());
+        }
+
+        ((FileSystemXmlApplicationContext) context).close();
+    }
+
+    /**
+     *  Example of updating an Offer object in the database.
+     */
+    private void update() {
+
+        /** A Spring bean container. */
+        final ApplicationContext context =
+                new FileSystemXmlApplicationContext(
+                        "src/main/java/com/spring/beans/dbcp.xml");
+
+        OffersDAO2 offersDao = (OffersDAO2) context.getBean("offersDao2");
+
+        try {
+
+            Offer updateOffer = new Offer(4, "Claire",
+                    "claire@hotmail.com", "Coding Java");
+
+            if (offersDao.update(updateOffer)) {
+                System.out.println("Object updated.");
+            } else {
+                System.out.println("Cannot update object.");
+            }
+
+            List<Offer> offers = offersDao.getOffers();
+
+            for (Offer offer : offers) {
                 System.out.println(offer);
             }
         } catch (CannotGetJdbcConnectionException ex) {

@@ -1,6 +1,7 @@
 package com.spring.models;
 
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Component;
@@ -90,14 +91,46 @@ public class OffersDAO2 {
     }
 
     /**
-     * Delete a row based on id.
-     * @param id id
-     * @return true if row is deleted; false otherwise.
+     *  Delete a row based on id.
+     *  @param id id
+     *  @return true if row is deleted; false otherwise.
      */
     public boolean delete(final int id) {
 
-        MapSqlParameterSource params = new MapSqlParameterSource("id", id);
+        MapSqlParameterSource params
+                = new MapSqlParameterSource("id", id);
 
         return jdbc.update("delete from offers where id =:id", params) == 1;
+    }
+
+    /**
+     *  Create an Offer object in the database.
+     *  Create a set of parameters you can use to replace placeholders in your
+     *  SQL from your actual bean properties.
+     *
+     * @param offer offer
+     * @return true if an Offer object is returned; false otherwise
+     */
+    public boolean create(final Offer offer) {
+
+        BeanPropertySqlParameterSource params =
+                new BeanPropertySqlParameterSource(offer);
+
+        return jdbc.update("insert into offers (name, text, email) "
+                + "values(:name, :text, :email)", params) == 1;
+    }
+
+    /**
+     *  Update an Offer object in the database.
+     * @param offer offer
+     * @return true if an Offer object is returned; false otherwise
+     */
+    public boolean update(final Offer offer) {
+
+        BeanPropertySqlParameterSource params =
+                new BeanPropertySqlParameterSource(offer);
+
+        return jdbc.update("update offers set name=:name, email=:email, " +
+                "               text:=text where id=:id", params) == 1;
     }
 }

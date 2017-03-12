@@ -3,7 +3,7 @@ package com.spring.models;
 /**
  *  Offer class.
  */
-public class Offer {
+public final class Offer {
 
     /** ID. */
     private int id;
@@ -13,6 +13,38 @@ public class Offer {
     private String email;
     /** Text. */
     private String text;
+
+    /** Default Constructor. */
+    public Offer() { }
+
+    /**
+     * Constructor.
+     *  @param newId newId
+     *  @param newName newName
+     *  @param newEmail newEmail
+     *  @param newText newText
+     */
+    public Offer(final int newId, final String newName,
+                 final String newEmail, final String newText) {
+
+        this.id = newId;
+        this.name = newName;
+        this.email = newEmail;
+        this.text = newText;
+    }
+
+    /**
+     * Constructor.
+     *  @param newName newName
+     *  @param newEmail newEmail
+     *  @param newText newText
+     */
+    public Offer(final String newName, final String newEmail,
+                  final String newText) {
+        this.name = newName;
+        this.email = newEmail;
+        this.text = newText;
+    }
 
     /**
      * Get the id.
