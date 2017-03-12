@@ -117,7 +117,7 @@ public final class App {
      */
     private void basicBeanConfiguration() {
 
-        /** Create a Spring beans container. You can place the beans container
+        /* Create a Spring beans container. You can place the beans container
          * anywhere in the application using FileSystemXmlApplicationContext.
          */
         final ApplicationContext context =
@@ -158,7 +158,7 @@ public final class App {
      */
     private void settingListProperties() {
 
-        /** Create a Spring beans container. You can place the beans container
+        /* Create a Spring beans container. You can place the beans container
          * anywhere in the application using FileSystemXmlApplicationContext.
          */
         final ApplicationContext context =
