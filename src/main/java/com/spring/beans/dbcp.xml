@@ -32,8 +32,7 @@
     </context:component-scan>
 
 
-    <context:property-placeholder
-            location="classpath:jdbc.properties" />
+    <context:property-placeholder location="classpath:jdbc.properties" />
 
     <!-- when container is destroyed it will close the MySQL connection -->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"

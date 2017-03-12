@@ -73,7 +73,7 @@ public final class App {
     public static void main(final String[] args) {
 
         App app = new App();
-        /**app.basicBeanConfiguration();
+        app.basicBeanConfiguration();
         app.settingListProperties();
         app.listOfBeans();
         app.innerBeans();
@@ -101,7 +101,7 @@ public final class App {
         app.updatestatements();
         app.getplaceholdervaluesfrombean();
         app.update();
-        app.batchupdate();*/
+        app.batchupdate();
         app.transactions();
     }
 
@@ -175,7 +175,7 @@ public final class App {
      */
     private void listOfBeans() {
 
-        /** A Spring bean container. */
+        // A Spring bean container. */
         final ApplicationContext junglebean =
                 new FileSystemXmlApplicationContext(
                 "src/main/java/com/spring/beans/junglebean.xml");
@@ -207,7 +207,7 @@ public final class App {
      */
     private void propertymap() {
 
-        /** A Spring bean container. */
+        // A Spring bean container.
         final ApplicationContext context =
                 new FileSystemXmlApplicationContext(
                 "src/main/java/com/spring/beans/propertymap.xml");
@@ -223,7 +223,7 @@ public final class App {
      */
     private void autowirebytype() {
 
-        /** A Spring bean container. */
+        // A Spring bean container.
         final ApplicationContext context =
                 new FileSystemXmlApplicationContext(
             "src/main/java/com/spring/beans/autowirebytype.xml");
@@ -241,7 +241,7 @@ public final class App {
      */
     private void autowirebyname() {
 
-        /** A Spring bean container. */
+        // A Spring bean container.
         final ApplicationContext context =
                 new FileSystemXmlApplicationContext(
             "src/main/java/com/spring/beans/autowirebyname.xml");
@@ -259,7 +259,7 @@ public final class App {
      */
     private void autowirebyconstructor() {
 
-        /** A Spring bean container. */
+        // A Spring bean container.
         final ApplicationContext context =
                 new FileSystemXmlApplicationContext(
         "src/main/java/com/spring/beans/autowirebyconstructor.xml");
@@ -277,7 +277,7 @@ public final class App {
      */
     private void autowirebydefault() {
 
-        /** A Spring bean container. */
+        // A Spring bean container.
         final ApplicationContext context =
                 new FileSystemXmlApplicationContext(
         "src/main/java/com/spring/beans/autowirebydefault.xml");
@@ -295,7 +295,7 @@ public final class App {
      */
     private void autowireremoveambiguities() {
 
-        /** A Spring bean container. */
+        // A Spring bean container.
         final ApplicationContext context =
                 new FileSystemXmlApplicationContext(
             "src/main/java/com/spring/beans/autowireremoveambiguities.xml");
@@ -313,7 +313,7 @@ public final class App {
      */
     private void annotationwiring() {
 
-        /** A Spring bean container. */
+        // A Spring bean container.
         final ApplicationContext context =
                 new FileSystemXmlApplicationContext(
         "src/main/java/com/spring/beans/annotationautowire.xml");
@@ -331,7 +331,7 @@ public final class App {
      */
     private void annotationusingqualifiers() {
 
-        /** A Spring bean container. */
+        // A Spring bean container.
         final ApplicationContext context =
                 new FileSystemXmlApplicationContext(
         "src/main/java/com/spring/beans/annotationusingqualifiers.xml");
@@ -349,7 +349,7 @@ public final class App {
      */
     private void annotationresource() {
 
-        /** A Spring bean container. */
+        // A Spring bean container.
         final ApplicationContext context =
                 new FileSystemXmlApplicationContext(
         "src/main/java/com/spring/beans/annotationresource.xml");
@@ -367,7 +367,7 @@ public final class App {
      */
     private void annotationinitdestroy() {
 
-        /** A Spring bean container. */
+        // A Spring bean container.
         final ApplicationContext context =
                 new FileSystemXmlApplicationContext(
     "src/main/java/com/spring/beans/annotationinitdestroy.xml");
@@ -385,7 +385,7 @@ public final class App {
      */
     private void automaticbeandiscovery() {
 
-        /** A Spring bean container. */
+        // A Spring bean container.
         final ApplicationContext context =
                 new FileSystemXmlApplicationContext(
         "src/main/java/com/spring/beans/autobeandiscovery.xml");
@@ -404,7 +404,7 @@ public final class App {
      */
     private void annotationsetpropertyvalues() {
 
-        /** A Spring bean container. */
+        // A Spring bean container.
         final ApplicationContext context =
                 new FileSystemXmlApplicationContext(
         "src/main/java/com/spring/beans/annotationsetpropertyvalues.xml");
@@ -422,7 +422,7 @@ public final class App {
      */
     private void spel() {
 
-        /** A Spring bean container. */
+        // A Spring bean container.
         final ApplicationContext context =
                 new FileSystemXmlApplicationContext(
                         "src/main/java/com/spring/beans/spel.xml");
@@ -440,7 +440,7 @@ public final class App {
      */
     private void spelannotations() {
 
-        /** A Spring bean container. */
+        // A Spring bean container.
         final ApplicationContext context =
                 new FileSystemXmlApplicationContext(
             "src/main/java/com/spring/beans/spelannotations.xml");
@@ -458,7 +458,7 @@ public final class App {
      */
     private void speloperators() {
 
-        /** A Spring bean container. */
+        // A Spring bean container.
         final ApplicationContext context =
                 new FileSystemXmlApplicationContext(
             "src/main/java/com/spring/beans/speloperators.xml");
@@ -476,7 +476,7 @@ public final class App {
      */
     private void usepropertyfile() {
 
-        /** A Spring bean container. */
+        // A Spring bean container.
         final ApplicationContext context =
                 new FileSystemXmlApplicationContext(
             "src/main/java/com/spring/beans/usepropertyfile.xml");
@@ -493,7 +493,7 @@ public final class App {
      */
     private void daopattern() {
 
-        /** A Spring bean container. */
+        // A Spring bean container.
         final ApplicationContext context =
                 new FileSystemXmlApplicationContext(
                         "src/main/java/com/spring/beans/daopattern.xml");
@@ -510,7 +510,7 @@ public final class App {
      */
     private void dbcp() {
 
-        /** A Spring bean container. */
+        // A Spring bean container.
         final ApplicationContext context =
                 new FileSystemXmlApplicationContext(
                         "src/main/java/com/spring/beans/dbcp.xml");
@@ -527,7 +527,7 @@ public final class App {
      */
     private void databasequery() {
 
-        /** A Spring bean container. */
+        // A Spring bean container.
         final ApplicationContext context =
                 new FileSystemXmlApplicationContext(
                         "src/main/java/com/spring/beans/dbcp.xml");
@@ -548,7 +548,7 @@ public final class App {
      */
     private void databaexception() {
 
-        /** A Spring bean container. */
+        // A Spring bean container.
         final ApplicationContext context =
                 new FileSystemXmlApplicationContext(
                         "src/main/java/com/spring/beans/dbcp.xml");
@@ -576,7 +576,7 @@ public final class App {
      */
     private void namedparameters() {
 
-        /** A Spring bean container. */
+        // A Spring bean container.
         final ApplicationContext context =
                 new FileSystemXmlApplicationContext(
                         "src/main/java/com/spring/beans/dbcp.xml");
@@ -601,7 +601,7 @@ public final class App {
      */
     private void updatestatements() {
 
-        /** A Spring bean container. */
+        // A Spring bean container.
         final ApplicationContext context =
                 new FileSystemXmlApplicationContext(
                         "src/main/java/com/spring/beans/dbcp.xml");
@@ -631,7 +631,7 @@ public final class App {
      */
     private void getplaceholdervaluesfrombean() {
 
-        /** A Spring bean container. */
+        // A Spring bean container.
         final ApplicationContext context =
                 new FileSystemXmlApplicationContext(
                         "src/main/java/com/spring/beans/dbcp.xml");
@@ -669,7 +669,7 @@ public final class App {
      */
     private void update() {
 
-        /** A Spring bean container. */
+        // A Spring bean container.
         final ApplicationContext context =
                 new FileSystemXmlApplicationContext(
                         "src/main/java/com/spring/beans/dbcp.xml");
@@ -708,7 +708,7 @@ public final class App {
      */
     private void batchupdate() {
 
-        /** A Spring bean container. */
+        // A Spring bean container.
         final ApplicationContext context =
                 new FileSystemXmlApplicationContext(
                         "src/main/java/com/spring/beans/dbcp.xml");
@@ -758,7 +758,7 @@ public final class App {
      */
     private void transactions() {
 
-        /** A Spring bean container. */
+        // A Spring bean container.
         final ApplicationContext context =
                 new FileSystemXmlApplicationContext(
                         "src/main/java/com/spring/beans/dbcp.xml");
