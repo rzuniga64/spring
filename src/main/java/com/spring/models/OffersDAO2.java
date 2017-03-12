@@ -3,6 +3,7 @@ package com.spring.models;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.*;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import javax.sql.DataSource;
@@ -133,16 +134,19 @@ public class OffersDAO2 {
     }
 
     /**
-     * Batch update Offer objects in the database using Spring (not JDBC).
-     * @param offers offers
-     * @return an array of integers
+     *  Batch update Offer objects in the database using Spring (not JDBC).
+     *  Having the @Transactional annotation means that everything that is done
+     *  in terms of SQL will either all succeed or all fail.
+     *  @param offers offers
+     *  @return an array of integers
      */
+    @Transactional
     public int[] create(final List<Offer> offers) {
 
         SqlParameterSource[] params =
                 SqlParameterSourceUtils.createBatch(offers.toArray());
 
-        return jdbc.batchUpdate("insert into offers (name, text, email)"
-                                   + "values (:name, :text, :email)", params);
+        return jdbc.batchUpdate("insert into offers (id, name, text, email)"
+                                + "values (:id, :name, :text, :email)", params);
     }
 }
