@@ -72,7 +72,7 @@ public final class App {
      */
     public static void main(final String[] args) {
 
-        App app = new App();
+        /*App app = new App();
         app.basicBeanConfiguration();
         app.settingListProperties();
         app.listOfBeans();
@@ -102,7 +102,7 @@ public final class App {
         app.getplaceholdervaluesfrombean();
         app.update();
         app.batchupdate();
-        app.transactions();
+        app.transactions();*/
     }
 
     /**
