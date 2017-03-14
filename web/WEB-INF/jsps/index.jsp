@@ -1,16 +1,26 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Owner
-  Date: 3/7/2017
-  Time: 1:29 PM
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
 <html>
-  <head>
+<head>
     <title>$Title$</title>
-  </head>
-  <body>
-  $END$
-  </body>
+</head>
+<body>
+    <p>Hi there!</p>
+    <p>
+        <%-- Session: <%= session.getAttribute("name") %> --%>
+        <%-- Request(using EL): ${name} --%>
+        Using JSTL: <c:out value="${name}"/>
+    </p>
+
+    <sql:query var="rs" dataSource="jdbc/MySQLDataSource">
+        select id, name, email, text from springtutorial.offers
+    </sql:query>
+
+    <c:forEach var="row" items="${rs.rows}">
+        ID: ${row.id}<br/>
+        Name: ${row.name}<br/>
+    </c:forEach>
+
+</body>
 </html>

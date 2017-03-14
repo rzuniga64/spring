@@ -25,17 +25,27 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Maven: mysql:mysql-connector-java:6.0.5" level="project" />
-    <orderEntry type="library" name="Maven: commons-dbcp:commons-dbcp:1.4" level="project" />
-    <orderEntry type="library" name="Maven: commons-pool:commons-pool:1.5.4" level="project" />
-    <orderEntry type="library" name="Spring-4.3.7.RELEASE" level="project" />
-    <orderEntry type="library" name="Spring Integration-4.0.3" level="project" />
-    <orderEntry type="library" name="Spring MVC-4.3.7.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: mysql:mysql-connector-java:6.0.5" level="project" />
-    <orderEntry type="library" name="Maven: commons-dbcp:commons-dbcp:1.4" level="project" />
-    <orderEntry type="library" name="Maven: commons-pool:commons-pool:1.5.4" level="project" />
-    <orderEntry type="library" name="Spring Integration-4.0.3" level="project" />
-    <orderEntry type="library" name="Spring MVC-4.3.7.RELEASE" level="project" />
-    <orderEntry type="library" name="Spring-4.3.7.RELEASE" level="project" />
+    <orderEntry type="library" exported="" name="Maven: mysql:mysql-connector-java:6.0.5" level="project" />
+    <orderEntry type="library" exported="" name="Maven: commons-dbcp:commons-dbcp:1.4" level="project" />
+    <orderEntry type="library" exported="" name="Maven: commons-pool:commons-pool:1.5.4" level="project" />
+    <orderEntry type="library" exported="" name="Spring-4.3.7.RELEASE" level="project" />
+    <orderEntry type="library" exported="" name="Spring Integration-4.0.3" level="project" />
+    <orderEntry type="library" exported="" name="Spring MVC-4.3.7.RELEASE" level="project" />
+    <orderEntry type="library" exported="" name="Maven: mysql:mysql-connector-java:6.0.5" level="project" />
+    <orderEntry type="library" exported="" name="Maven: commons-dbcp:commons-dbcp:1.4" level="project" />
+    <orderEntry type="library" exported="" name="Maven: commons-pool:commons-pool:1.5.4" level="project" />
+    <orderEntry type="library" exported="" name="Spring Integration-4.0.3" level="project" />
+    <orderEntry type="library" exported="" name="Spring MVC-4.3.7.RELEASE" level="project" />
+    <orderEntry type="library" exported="" name="Spring-4.3.7.RELEASE" level="project" />
+    <orderEntry type="library" exported="" scope="PROVIDED" name="GlassFish 4.1.2.SNAPSHOT" level="application_server_libraries" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/web/WEB-INF/lib/mysql-connector-java-5.1.40-bin.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>
