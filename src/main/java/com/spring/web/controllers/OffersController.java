@@ -33,6 +33,7 @@ public class OffersController {
 
         this.offersService = newOffersService;
     }
+
     /**
      *  showHome method.
      * '/' means if we go to the root of our application then it will be
@@ -40,8 +41,8 @@ public class OffersController {
      *  @param model model
      *  @return a String
      */
-    @RequestMapping("/")
-    public String showHome(final Model model) {
+    @RequestMapping("/offers")
+    public String showOffers(final Model model) {
 
         List<Offer> offers = offersService.getCurrent();
 
@@ -50,7 +51,17 @@ public class OffersController {
         model.addAttribute("offers", offers);
         // model.addAttribute("name", "Cinnamon");
 
-        return "index";
+        return "offers";
+    }
+
+    /**
+     *  createOffer method.
+     *  @return the offers page as a String
+     */
+    @RequestMapping("/createoffer")
+    public String createOffer() {
+
+        return "createoffer";
     }
 
     /*@RequestMapping("/")
