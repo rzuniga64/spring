@@ -5,6 +5,8 @@ import com.spring.web.service.OffersService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -52,6 +54,19 @@ public class OffersController {
         // model.addAttribute("name", "Cinnamon");
 
         return "offers";
+    }
+
+    /**
+     *  showTest method.
+     *  @param model model
+     *  @param id id
+     *  @return a String
+     */
+    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    public String showTest(final Model model, @RequestParam("id") final String id) {
+
+        System.out.println("Id is: " + id);
+        return "index";
     }
 
     /**
