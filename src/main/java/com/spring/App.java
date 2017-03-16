@@ -57,9 +57,9 @@ import java.util.List;
  *      of prototype you create a new object.
  *
  * INIT and DESTROY METHODS
- * 1. init method can be run after beans have been created and their properties
+ * 1. init method can be run after config have been created and their properties
  *    have been set.
- * 2. destroy can be run before beans are destroyed.
+ * 2. destroy can be run before config are destroyed.
  */
 public final class App {
 
@@ -117,12 +117,12 @@ public final class App {
      */
     private void basicBeanConfiguration() {
 
-        /* Create a Spring beans container. You can place the beans container
+        /* Create a Spring config container. You can place the config container
          * anywhere in the application using FileSystemXmlApplicationContext.
          */
         final ApplicationContext context =
                 new FileSystemXmlApplicationContext(
-        "src/main/java/com/spring/beans/applicationContext.xml");
+        "src/main/java/com/spring/config/applicationContext.xml");
 
         // The address object is injected into the person object using the ref
         // property in the bean.xml
@@ -133,7 +133,7 @@ public final class App {
         Address address2 = (Address) context.getBean("address2");
         System.out.println("Address using p namespace: " + address2);
 
-        // Use the Spring beans container, context, to get beans from it.
+        // Use the Spring config container, context, to get config from it.
         // FileSystemXmlApplicationContext object reads the xml file and then
         // finds the Person class mentioned in the xml file and instantiates it.
         // Then we can fetch the object from the ApplicationContext and call
@@ -158,12 +158,12 @@ public final class App {
      */
     private void settingListProperties() {
 
-        /* Create a Spring beans container. You can place the beans container
+        /* Create a Spring config container. You can place the config container
          * anywhere in the application using FileSystemXmlApplicationContext.
          */
         final ApplicationContext context =
                 new FileSystemXmlApplicationContext(
-        "src/main/java/com/spring/beans/applicationContext.xml");
+        "src/main/java/com/spring/config/applicationContext.xml");
 
         FruitBasket basket = (FruitBasket) context.getBean("basket");
 
@@ -171,14 +171,14 @@ public final class App {
     }
 
     /**
-     *  Create a list of beans using a junglebean.xml.
+     *  Create a list of config using a junglebean.xml.
      */
     private void listOfBeans() {
 
         // A Spring bean container. */
         final ApplicationContext junglebean =
                 new FileSystemXmlApplicationContext(
-                "src/main/java/com/spring/beans/junglebean.xml");
+                "src/main/java/com/spring/config/junglebean.xml");
 
         Jungle jungle = (Jungle) junglebean.getBean("jungle");
         System.out.println(jungle);
@@ -187,14 +187,14 @@ public final class App {
     }
 
     /**
-     *  Create a list of beans using jungleinnerbeans.xml.
+     *  Create a list of config using jungleinnerbeans.xml.
      */
     private void innerBeans() {
 
         // A Spring bean container.
         final ApplicationContext jungleinnerbeans =
                 new FileSystemXmlApplicationContext(
-            "src/main/java/com/spring/beans/jungleinnerbean.xml");
+            "src/main/java/com/spring/config/jungleinnerbean.xml");
 
         Jungle jungle = (Jungle) jungleinnerbeans.getBean("jungle");
         System.out.println(jungle);
@@ -203,14 +203,14 @@ public final class App {
     }
 
     /**
-     *  Create a list of beans using propertymap.xml.
+     *  Create a list of config using propertymap.xml.
      */
     private void propertymap() {
 
         // A Spring bean container.
         final ApplicationContext context =
                 new FileSystemXmlApplicationContext(
-                "src/main/java/com/spring/beans/propertymap.xml");
+                "src/main/java/com/spring/config/propertymap.xml");
 
         JungleFoods junglefoods = (JungleFoods) context.getBean("jungleFoods");
         System.out.println(junglefoods);
@@ -226,7 +226,7 @@ public final class App {
         // A Spring bean container.
         final ApplicationContext context =
                 new FileSystemXmlApplicationContext(
-            "src/main/java/com/spring/beans/autowirebytype.xml");
+            "src/main/java/com/spring/config/autowirebytype.xml");
 
         Logger logger = (Logger) context.getBean("autowirebytype");
 
@@ -244,7 +244,7 @@ public final class App {
         // A Spring bean container.
         final ApplicationContext context =
                 new FileSystemXmlApplicationContext(
-            "src/main/java/com/spring/beans/autowirebyname.xml");
+            "src/main/java/com/spring/config/autowirebyname.xml");
 
         Logger2 logger = (Logger2) context.getBean("autowirebyname");
 
@@ -262,7 +262,7 @@ public final class App {
         // A Spring bean container.
         final ApplicationContext context =
                 new FileSystemXmlApplicationContext(
-        "src/main/java/com/spring/beans/autowirebyconstructor.xml");
+        "src/main/java/com/spring/config/autowirebyconstructor.xml");
 
         Logger3 logger = (Logger3) context.getBean("autowirebyconstructor");
 
@@ -280,7 +280,7 @@ public final class App {
         // A Spring bean container.
         final ApplicationContext context =
                 new FileSystemXmlApplicationContext(
-        "src/main/java/com/spring/beans/autowirebydefault.xml");
+        "src/main/java/com/spring/config/autowirebydefault.xml");
 
         Logger4 logger = (Logger4) context.getBean("autowirebydefault");
 
@@ -298,7 +298,7 @@ public final class App {
         // A Spring bean container.
         final ApplicationContext context =
                 new FileSystemXmlApplicationContext(
-            "src/main/java/com/spring/beans/autowireremoveambiguities.xml");
+            "src/main/java/com/spring/config/autowireremoveambiguities.xml");
 
         Logger5 logger = (Logger5) context.getBean("autowireremoveambiguities");
 
@@ -316,7 +316,7 @@ public final class App {
         // A Spring bean container.
         final ApplicationContext context =
                 new FileSystemXmlApplicationContext(
-        "src/main/java/com/spring/beans/annotationautowire.xml");
+        "src/main/java/com/spring/config/annotationautowire.xml");
 
         Logger6 logger = (Logger6) context.getBean("annotationwiring");
 
@@ -334,7 +334,7 @@ public final class App {
         // A Spring bean container.
         final ApplicationContext context =
                 new FileSystemXmlApplicationContext(
-        "src/main/java/com/spring/beans/annotationusingqualifiers.xml");
+        "src/main/java/com/spring/config/annotationusingqualifiers.xml");
 
         Logger7 logger = (Logger7) context.getBean("annotationusingqualifiers");
 
@@ -352,7 +352,7 @@ public final class App {
         // A Spring bean container.
         final ApplicationContext context =
                 new FileSystemXmlApplicationContext(
-        "src/main/java/com/spring/beans/annotationresource.xml");
+        "src/main/java/com/spring/config/annotationresource.xml");
 
         Logger8 logger = (Logger8) context.getBean("annotationresource");
 
@@ -370,7 +370,7 @@ public final class App {
         // A Spring bean container.
         final ApplicationContext context =
                 new FileSystemXmlApplicationContext(
-    "src/main/java/com/spring/beans/annotationinitdestroy.xml");
+    "src/main/java/com/spring/config/annotationinitdestroy.xml");
 
         Logger9 logger = (Logger9) context.getBean("annotationinitdestroy");
 
@@ -388,7 +388,7 @@ public final class App {
         // A Spring bean container.
         final ApplicationContext context =
                 new FileSystemXmlApplicationContext(
-        "src/main/java/com/spring/beans/autobeandiscovery.xml");
+        "src/main/java/com/spring/config/autobeandiscovery.xml");
 
         Logger10 logger = (Logger10) context.getBean("autobeandiscovery");
 
@@ -407,7 +407,7 @@ public final class App {
         // A Spring bean container.
         final ApplicationContext context =
                 new FileSystemXmlApplicationContext(
-        "src/main/java/com/spring/beans/annotationsetpropertyvalues.xml");
+        "src/main/java/com/spring/config/annotationsetpropertyvalues.xml");
 
         Robot robot = (Robot) context.getBean("annotationsetpropertyvalues");
 
@@ -425,7 +425,7 @@ public final class App {
         // A Spring bean container.
         final ApplicationContext context =
                 new FileSystemXmlApplicationContext(
-                        "src/main/java/com/spring/beans/spel.xml");
+                        "src/main/java/com/spring/config/spel.xml");
 
         Robot2 robot = (Robot2) context.getBean("spel");
 
@@ -443,7 +443,7 @@ public final class App {
         // A Spring bean container.
         final ApplicationContext context =
                 new FileSystemXmlApplicationContext(
-            "src/main/java/com/spring/beans/spelannotations.xml");
+            "src/main/java/com/spring/config/spelannotations.xml");
 
         Robot3 robot = (Robot3) context.getBean("spelannotations");
 
@@ -461,7 +461,7 @@ public final class App {
         // A Spring bean container.
         final ApplicationContext context =
                 new FileSystemXmlApplicationContext(
-            "src/main/java/com/spring/beans/speloperators.xml");
+            "src/main/java/com/spring/config/speloperators.xml");
 
         Robot4 robot = (Robot4) context.getBean("speloperators");
 
@@ -479,7 +479,7 @@ public final class App {
         // A Spring bean container.
         final ApplicationContext context =
                 new FileSystemXmlApplicationContext(
-            "src/main/java/com/spring/beans/usepropertyfile.xml");
+            "src/main/java/com/spring/config/usepropertyfile.xml");
 
         Robot5 robot = (Robot5) context.getBean("usepropertyfile");
 
@@ -496,7 +496,7 @@ public final class App {
         // A Spring bean container.
         final ApplicationContext context =
                 new FileSystemXmlApplicationContext(
-                        "src/main/java/com/spring/beans/daopattern.xml");
+                        "src/main/java/com/spring/config/daopattern.xml");
 
         Robot6 robot = (Robot6) context.getBean("daopattern");
 
@@ -513,7 +513,7 @@ public final class App {
         // A Spring bean container.
         final ApplicationContext context =
                 new FileSystemXmlApplicationContext(
-                        "src/main/java/com/spring/beans/dbcp.xml");
+                        "src/main/java/com/spring/config/dbcp.xml");
 
         Robot7 robot = (Robot7) context.getBean("dbcp");
 
@@ -530,7 +530,7 @@ public final class App {
         // A Spring bean container.
         final ApplicationContext context =
                 new FileSystemXmlApplicationContext(
-                        "src/main/java/com/spring/beans/dbcp.xml");
+                        "src/main/java/com/spring/config/dbcp.xml");
 
         OffersDAO offersDAO = (OffersDAO) context.getBean("offersDao");
 
@@ -551,7 +551,7 @@ public final class App {
         // A Spring bean container.
         final ApplicationContext context =
                 new FileSystemXmlApplicationContext(
-                        "src/main/java/com/spring/beans/dbcp.xml");
+                        "src/main/java/com/spring/config/dbcp.xml");
 
         OffersDAO offersDAO = (OffersDAO) context.getBean("offersDao");
 
@@ -579,7 +579,7 @@ public final class App {
         // A Spring bean container.
         final ApplicationContext context =
                 new FileSystemXmlApplicationContext(
-                        "src/main/java/com/spring/beans/dbcp.xml");
+                        "src/main/java/com/spring/config/dbcp.xml");
 
         OffersDAO2 offersDAO2 = (OffersDAO2) context.getBean("offersDao2");
 
@@ -604,7 +604,7 @@ public final class App {
         // A Spring bean container.
         final ApplicationContext context =
                 new FileSystemXmlApplicationContext(
-                        "src/main/java/com/spring/beans/dbcp.xml");
+                        "src/main/java/com/spring/config/dbcp.xml");
 
         OffersDAO2 offersDAO2 = (OffersDAO2) context.getBean("offersDao2");
 
@@ -634,7 +634,7 @@ public final class App {
         // A Spring bean container.
         final ApplicationContext context =
                 new FileSystemXmlApplicationContext(
-                        "src/main/java/com/spring/beans/dbcp.xml");
+                        "src/main/java/com/spring/config/dbcp.xml");
 
         OffersDAO2 offersDao = (OffersDAO2) context.getBean("offersDao2");
 
@@ -672,7 +672,7 @@ public final class App {
         // A Spring bean container.
         final ApplicationContext context =
                 new FileSystemXmlApplicationContext(
-                        "src/main/java/com/spring/beans/dbcp.xml");
+                        "src/main/java/com/spring/config/dbcp.xml");
 
         OffersDAO2 offersDao = (OffersDAO2) context.getBean("offersDao2");
 
@@ -711,7 +711,7 @@ public final class App {
         // A Spring bean container.
         final ApplicationContext context =
                 new FileSystemXmlApplicationContext(
-                        "src/main/java/com/spring/beans/dbcp.xml");
+                        "src/main/java/com/spring/config/dbcp.xml");
 
         OffersDAO2 offersDao = (OffersDAO2) context.getBean("offersDao2");
 
@@ -761,7 +761,7 @@ public final class App {
         // A Spring bean container.
         final ApplicationContext context =
                 new FileSystemXmlApplicationContext(
-                        "src/main/java/com/spring/beans/dbcp.xml");
+                        "src/main/java/com/spring/config/dbcp.xml");
 
         OffersDAO2 offersDao = (OffersDAO2) context.getBean("offersDao2");
 

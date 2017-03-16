@@ -7,7 +7,7 @@ import javax.annotation.Resource;
 
 /**
  *  Dummy implementation of Logger4 class.
- *  We need to wire the ConsoleWriter and FileWriter beans into this class.
+ *  We need to wire the ConsoleWriter and FileWriter config into this class.
  */
 public class Logger8 {
 
@@ -21,7 +21,7 @@ public class Logger8 {
      *  Set the consoleWriter.
      *  Only inject the bean if it is found in the XML.
      *  @Resource(name) = "consoleWriter" eliminates ambiguity when there are
-     *  two beans with the same class. We have two ConsoleWriters of type
+     *  two config with the same class. We have two ConsoleWriters of type
      *  LogWriter in annoationresource.xml.
      *
      *  @param writer writer

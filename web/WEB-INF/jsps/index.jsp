@@ -1,25 +1,18 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
 <html>
 <head>
     <title>$Title$</title>
 </head>
 <body>
     <p>Hi there!</p>
-    <p>
-        <%-- Session: <%= session.getAttribute("name") %> --%>
-        <%-- Request(using EL): ${name} --%>
-        Using JSTL: <c:out value="${name}"/>
-    </p>
 
-    <sql:query var="rs" dataSource="jdbc/MySQLDataSource">
-        select id, name, email, text from springtutorial.offers
-    </sql:query>
-
-    <c:forEach var="row" items="${rs.rows}">
+    <%-- With a foreach loop in JSTL you can iterate over a Java List --%>
+    <c:forEach var="row" items="${offers}">
         ID: ${row.id}<br/>
         Name: ${row.name}<br/>
+        Email: ${row.email}<br/>
+        Text: ${row.text}<br/>
     </c:forEach>
 
 </body>

@@ -8,7 +8,7 @@ import javax.annotation.Resource;
 
 /**
  *  Dummy implementation of Logger4 class.
- *  We need to wire the ConsoleWriter and FileWriter beans into this class.
+ *  We need to wire the ConsoleWriter and FileWriter config into this class.
  *  Make sure you set scope of bean to singleton or leave it to its default.
  */
 @Component

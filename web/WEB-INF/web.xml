@@ -10,14 +10,26 @@
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
 
-    <!--context-param>
-        <param-name>contextConfigLocation</param-name>
-        <param-value>/WEB-INF/applicationContext.xml</param-value>
-    </context-param-->
-    <!--listener>
+
+
+    <!-- Spring needs to know to load dao-context.xml. XML file by adding some
+         special entries to web.xml. Add a Spring class that will load all our
+         other XML files and configure it. -->
+    <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener
         </listener-class>
-    </listener-->
+    </listener>
+
+    <!-- Configure the listener to load our other XML files -->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>
+            /WEB-INF/config/dao-context.xml
+            /WEB-INF/config/service-context.xml
+        </param-value>
+
+    </context-param>
+
     <servlet>
         <servlet-name>offers</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet
@@ -29,7 +41,9 @@
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
+    <description>Spring Database</description>
     <resource-ref>
+        <description>MySQL DB Connection</description>
         <res-ref-name>jdbc/MySQLDataSource</res-ref-name>
         <res-type>javax.sql.DataSource</res-type>
         <res-auth>Container</res-auth>

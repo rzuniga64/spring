@@ -6,7 +6,7 @@ import javax.annotation.Resource;
 
 /**
  *  Dummy implementation of Logger4 class.
- *  We need to wire the ConsoleWriter and FileWriter beans into this class.
+ *  We need to wire the ConsoleWriter and FileWriter config into this class.
  *
  */
 public class Logger9 {
