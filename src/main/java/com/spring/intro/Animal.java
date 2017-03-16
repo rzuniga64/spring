@@ -56,7 +56,7 @@ public class Animal {
      *  @param newName name
      *  */
     public void setName(final String newName) {
-        this.name = name;
+        this.name = newName;
     }
 
     /**
