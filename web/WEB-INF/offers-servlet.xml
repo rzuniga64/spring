@@ -13,12 +13,15 @@
     <!-- Specify the location of your config -->
     <context:component-scan base-package="com.spring.web.controllers">
     </context:component-scan>
+
     <!-- This is what makes the @Controller annotation work.-->
     <mvc:annotation-driven></mvc:annotation-driven>
+    <mvc:resources mapping="/resources/**" location="/resources/"/>
 
     <bean id="jspViewResolver"
           class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/jsps/"></property>
         <property name="suffix" value=".jsp"></property>
     </bean>
+
 </beans>

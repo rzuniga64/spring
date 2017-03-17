@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -77,6 +78,18 @@ public class OffersController {
     public String createOffer() {
 
         return "createoffer";
+    }
+
+    /**
+     * doCreate method.
+     * @param model the model
+     * @param offer the offer
+     * @return the web page as a String
+     */
+    @RequestMapping(value = "/docreate", method = RequestMethod.POST)
+    public String doCreate(final Model model, Offer offer) {
+
+        return "offercreated";
     }
 
     /*@RequestMapping("/")
