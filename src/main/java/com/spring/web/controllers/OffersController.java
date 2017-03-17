@@ -4,12 +4,15 @@ import com.spring.models.Offer;
 import com.spring.web.service.OffersService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 import java.util.List;
 
 //import javax.servlet.http.HttpSession;
@@ -84,11 +87,23 @@ public class OffersController {
      * doCreate method.
      * @param model the model
      * @param offer the offer
+     * @param result result
      * @return the web page as a String
      */
     @RequestMapping(value = "/docreate", method = RequestMethod.POST)
-    public String doCreate(final Model model, Offer offer) {
+    public String doCreate(final Model model,
+                           @Valid final Offer offer,
+                           final BindingResult result) {
 
+        if (result.hasErrors()) {
+            System.out.println("Form does not validate");
+            List<ObjectError> errors = result.getAllErrors();
+            for (ObjectError error : errors) {
+                System.out.println(error.getDefaultMessage());
+            }
+        } else {
+            System.out.println("Form validated");
+        }
         return "offercreated";
     }
 

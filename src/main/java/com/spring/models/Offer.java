@@ -1,5 +1,7 @@
 package com.spring.models;
 
+import javax.validation.constraints.Size;
+
 /**
  *  Offer class.
  */
@@ -8,6 +10,7 @@ public final class Offer {
     /** ID. */
     private int id;
     /** Name. */
+    @Size(min=5, max=100)
     private String name;
     /** Email. */
     private String email;
