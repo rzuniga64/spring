@@ -9,7 +9,6 @@ import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
@@ -67,7 +66,8 @@ public class OffersController {
      *  @return a String
      */
     @RequestMapping(value = "/test", method = RequestMethod.GET)
-    public String showTest(final Model model, @RequestParam("id") final String id) {
+    public String showTest(final Model model,
+                           @RequestParam("id") final String id) {
 
         System.out.println("Id is: " + id);
         return "index";
@@ -75,11 +75,13 @@ public class OffersController {
 
     /**
      *  createOffer method.
+     *  @param model model
      *  @return the offers page as a String
      */
     @RequestMapping("/createoffer")
-    public String createOffer() {
+    public String createOffer(final Model model) {
 
+        model.addAttribute("offer", new Offer());
         return "createoffer";
     }
 
@@ -101,9 +103,9 @@ public class OffersController {
             for (ObjectError error : errors) {
                 System.out.println(error.getDefaultMessage());
             }
-        } else {
-            System.out.println("Form validated");
+            return "createoffer";
         }
+
         return "offercreated";
     }
 
@@ -113,4 +115,3 @@ public class OffersController {
         return "index";
     }*/
 }
-

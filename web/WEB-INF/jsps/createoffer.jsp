@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,37 +17,40 @@
 
     <div class="container">
         <div class="row"></div>
-        <form method="post"
-              action="${pageContext.request.contextPath}/docreate">
+        <sf:form method="post"
+                 action="${pageContext.request.contextPath}/docreate"
+                 commandName="offer">
 
             <div class="form-group">
                 <label for="name">Name</label>
-                <input  type="text"
-                        class="form-control"
-                        id="name"
-                        name="name"
-                        placeholder="Name">
+                <sf:input type="text"
+                          class="form-control"
+                          id="name"
+                          name="name"
+                          path="name"
+                          placeholder="Name"/>
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email"
-                       class="form-control"
-                       id="email"
-                       name="email"
-                       placeholder="Email">
+                <sf:input type="email"
+                          class="form-control"
+                          id="email"
+                          name="email"
+                          path="email"
+                          placeholder="Email"/>
             </div>
             <div class="form-group">
-                <label for="yourOffer">Your offer</label>
-                <textarea class="form-control"
-                          id="yourOffer"
-                          name="yourOffer"
-                          rows="10"
-                          cols="10">
-                </textarea>
+                <label for="text">Your offer</label>
+                <sf:textarea class="form-control"
+                             id="text"
+                             name="text"
+                             path="text"
+                             rows="10"
+                             cols="10"/>
             </div>
             <button type="submit" class="btn btn-default">Submit</button>
 
-        </form>
+        </sf:form>
     </div>
 </body>
 </html>
