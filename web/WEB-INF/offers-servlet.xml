@@ -16,7 +16,7 @@
 
     <!-- This is what makes the @Controller annotation work.-->
     <mvc:annotation-driven></mvc:annotation-driven>
-    <mvc:resources mapping="/resources/**" location="/resources/"/>
+    <mvc:resources mapping="/resources/**" location="/WEB-INF/resources/"/>
 
     <bean id="jspViewResolver"
           class="org.springframework.web.servlet.view.InternalResourceViewResolver">
