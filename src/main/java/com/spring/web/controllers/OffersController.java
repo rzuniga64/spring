@@ -2,10 +2,12 @@ package com.spring.web.controllers;
 
 import com.spring.models.Offer;
 import com.spring.web.service.OffersService;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -39,6 +41,12 @@ public class OffersController {
         this.offersService = newOffersService;
     }
 
+    /*
+    @ExceptionHandler(DataAccessException.class)
+    public String handleDatabaseException(DataAccessException ex) {
+        return "error";
+    }*/
+
     /**
      *  showHome method.
      * '/' means if we go to the root of our application then it will be
@@ -51,8 +59,8 @@ public class OffersController {
 
         List<Offer> offers = offersService.getCurrent();
 
-        // Model will exist in RequestScope not Session. So the Object is only
-        // available during a request.
+        // Model will exist in RequestScope not Session.
+        // So the Object is only available during a request.
         model.addAttribute("offers", offers);
         // model.addAttribute("name", "Cinnamon");
 
