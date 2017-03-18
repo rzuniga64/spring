@@ -1,7 +1,8 @@
 package com.spring.models;
 
+import com.spring.web.validators.ValidEmail;
+
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 /**
@@ -17,6 +18,7 @@ public final class Offer {
     private String name;
     /** Email. */
     @NotNull
+    //@ValidEmail(min = 6, message = "This email address is not valid.")
     private String email;
     /** Text. */
     @Size(  min = 20, max = 100,
