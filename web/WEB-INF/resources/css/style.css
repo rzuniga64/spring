@@ -1,9 +1,13 @@
 body {
-    background-color: cadetblue;
+    background-color: cornsilk;
 }
 
 .error {
     font-size: small;
     color: red;
     margin-left: 10px;
+}
+
+@-moz-document url-prefix() {
+    fieldset { display: table-cell; }
 }

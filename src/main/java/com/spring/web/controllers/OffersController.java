@@ -82,6 +82,7 @@ public class OffersController {
     public String createOffer(final Model model) {
 
         model.addAttribute("offer", new Offer());
+
         return "createoffer";
     }
 
@@ -100,6 +101,8 @@ public class OffersController {
         if (result.hasErrors()) {
             return "createoffer";
         }
+
+        offersService.create(offer);
 
         return "offercreated";
     }

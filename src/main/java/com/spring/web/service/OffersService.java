@@ -40,4 +40,13 @@ public class OffersService {
     public List<Offer> getCurrent() {
         return offersDao.getOffers();
     }
+
+    /**
+     * Create an offer.
+     * @param offer offer
+     */
+    public void create(final Offer offer) {
+
+        offersDao.create(offer);
+    }
 }
