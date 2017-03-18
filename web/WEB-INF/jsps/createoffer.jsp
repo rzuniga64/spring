@@ -29,6 +29,8 @@
                           name="name"
                           path="name"
                           placeholder="Name"/>
+                <br />
+                <sf:errors path="name" cssClass="error"></sf:errors>
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
@@ -38,6 +40,8 @@
                           name="email"
                           path="email"
                           placeholder="Email"/>
+                <br />
+                <sf:errors path="email" cssClass="error"></sf:errors>
             </div>
             <div class="form-group">
                 <label for="text">Your offer</label>
@@ -47,6 +51,8 @@
                              path="text"
                              rows="10"
                              cols="10"/>
+                <br />
+                <sf:errors path="text" cssClass="error"></sf:errors>
             </div>
             <button type="submit" class="btn btn-default">Submit</button>
 
