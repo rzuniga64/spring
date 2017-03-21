@@ -1,5 +1,8 @@
 package com.spring.aop;
 
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 
 /**
@@ -14,10 +17,19 @@ import org.springframework.stereotype.Component;
  *  You must add the dependency spring-aspects.4.x.x.
  *
  */
+@Aspect
 @Component
 public class Logger {
 
-    /** aboutToTakePhote method. */
+    /** Dummy method to define a reusable AOP pointcut. */
+    @Pointcut("execution(void com.spring.aop.Camera.snap())")
+    public void cameraSnap() {}
+
+    /**
+     * aboutToTakePhote method.
+     * Define pointcut as the parameter to the @Before annoation.
+     */
+    @Before("cameraSnap()")
     public void aboutToTakePhoto() {
 
         System.out.println("About to take photo...");
