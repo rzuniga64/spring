@@ -1,7 +1,13 @@
 package com.spring.aop;
 
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.*;
+import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.AfterThrowing;
+import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.Around;
 import org.springframework.stereotype.Component;
 
 /**
@@ -36,6 +42,13 @@ public class Logger {
     /** Dummy method to define a reusable AOP pointcut. */
     @Pointcut("execution(* com.spring.aop.*.*(..))")
     public void cameraRelatedAction() { }
+
+    /**
+     *  Dummy method to define a reusable AOP pointcut.
+     *  This pointcut will run for any argument with any name with any return
+     *  type. */
+    @Pointcut("within(com.spring.aop.Car)")
+    public void start() { }
 
     /**
      * aboutToTakePhoto method.
@@ -109,6 +122,7 @@ public class Logger {
      *  aroundAdvice method.
      *  Runs some code before the method proceeds. And then it runs some more
      *  code after the target method runs.
+     *  @param p p
      */
     @Around("cameraSnap()")
     public void aroundAdvice(final ProceedingJoinPoint p) {
@@ -123,4 +137,18 @@ public class Logger {
 
         System.out.println("Around advice (after)");
     }
+
+    /**
+     *  aboutToStartCar method.
+     *  Define pointcut as the parameter to the @Before annotation.
+     *  This will match any joint point, any method within Spring, within the
+     *  Car class
+     */
+    @Before("start()")
+    public void aboutToStartCar() {
+
+        System.out.println("About to start car...");
+    }
 }
+
+

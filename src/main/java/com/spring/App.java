@@ -105,8 +105,9 @@ public final class App {
         app.batchupdate();
         app.transactions();
         app.aop();
-        app.aopadvisetypes();*/
-        app.aopproxiesinterfaces();
+        app.aopadvisetypes();
+        app.aopproxiesinterfaces();*/
+        app.aopwithinpointcut();
 
         /* Aspect oriented programming is extending existing classes without
            modifying their existing code base.
@@ -879,6 +880,26 @@ public final class App {
         } catch (Exception e) {
             System.out.println("Caught exception: " + e.getMessage());
         }
+
+        ((FileSystemXmlApplicationContext) context).close();
+    }
+
+    /**
+     *  aopadvisetypes method.
+     *  To implement aspects when you ask for your bean Spring gives you a proxy
+     *  which is a class ( subclass of camera) that has code that will run code
+     *  in your aspect. It combines your aspect with your target class in order
+     *  to run your advice.
+     */
+    private void aopwithinpointcut() {
+
+        // A Spring bean container.
+        final ApplicationContext context =
+                new FileSystemXmlApplicationContext(
+                        "src/main/java/com/spring/aop/beans.xml");
+
+        Car car = (Car) context.getBean("car");
+        car.start();
 
         ((FileSystemXmlApplicationContext) context).close();
     }

@@ -15,3 +15,4 @@ public class Lens {
         System.out.println("Zooming lens: " + factor);
     }
 }
+

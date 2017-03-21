@@ -8,7 +8,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class Camera implements PhotoSnapper, Machine {
 
-    /** Constructor. */
+    /**
+     * Constructor.
+     */
     public Camera() {
         System.out.println("Hello from camera constructor");
     }

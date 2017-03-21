@@ -25,3 +25,4 @@ public interface ICamera {
     /** snapNigttime. */
     void snapNighttime();
 }
+
