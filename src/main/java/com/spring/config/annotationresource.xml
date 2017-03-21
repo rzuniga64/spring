@@ -9,20 +9,20 @@
        http://www.springframework.org/schema/context/spring-context.xsd">
 
     <bean id="annotationresource"
-          class="com.spring.annotationresource.Logger8">
+          class="com.spring.annotation.resource.Logger8">
     </bean>
 
     <bean name="consoleWriter"
-          class="com.spring.annotationresource.ConsoleWriter">
+          class="com.spring.annotation.resource.ConsoleWriter">
         <qualifier value="ConsoleWriter"></qualifier>
     </bean>
 
     <bean id="squirrel"
-          class="com.spring.annotationresource.ConsoleWriter">
+          class="com.spring.annotation.resource.ConsoleWriter">
     </bean>
 
     <bean id="fileWriter"
-          class="com.spring.annotationresource.FileWriter">
+          class="com.spring.annotation.resource.FileWriter">
     </bean>
 
     <!-- This tells Spring that we want to configure things using annotations-->

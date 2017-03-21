@@ -1,16 +1,17 @@
 package com.spring;
 
-import com.spring.annotationautowire.Logger6;
-import com.spring.annotationresource.Logger8;
-import com.spring.annotationusingqualifiers.Logger7;
-import com.spring.annotoationsetpropertyvalues.Robot;
+import com.spring.annotation.autowire.Logger6;
+import com.spring.annotation.resource.Logger8;
+import com.spring.annotation.usingqualifiers.Logger7;
+import com.spring.annotation.setpropertyvalues.Robot;
+import com.spring.aop.Camera;
 import com.spring.autobeandiscovery.Logger10;
-import com.spring.autowirearemovembiguities.Logger5;
-import com.spring.autowirebyconstructor.Logger3;
-import com.spring.autowirebydefault.Logger4;
-import com.spring.autowirebyname.Logger2;
-import com.spring.autowirebytype.Logger;
-import com.spring.annotationinitdestroy.Logger9;
+import com.spring.autowire.removeambiguities.Logger5;
+import com.spring.autowire.byconstructor.Logger3;
+import com.spring.autowire.bydefault.Logger4;
+import com.spring.autowire.byname.Logger2;
+import com.spring.autowire.bytype.Logger;
+import com.spring.annotation.initdestroy.Logger9;
 import com.spring.daopattern.Robot6;
 import com.spring.dbcp.Robot7;
 import com.spring.intro.Address;
@@ -72,8 +73,8 @@ public final class App {
      */
     public static void main(final String[] args) {
 
-        /**App app = new App();
-        app.basicBeanConfiguration();
+        App app = new App();
+        /**app.basicBeanConfiguration();
         app.settingListProperties();
         app.listOfBeans();
         app.innerBeans();
@@ -103,6 +104,11 @@ public final class App {
         app.update();
         app.batchupdate();
         app.transactions();*/
+        app.aop();
+
+        /* Aspect oriented programming is extending existing classes without
+           modifying their existing code base.
+         */
     }
 
     /**
@@ -797,6 +803,20 @@ public final class App {
             System.out.println(ex.getMessage());
             System.out.println(ex.getClass());
         }
+
+        ((FileSystemXmlApplicationContext) context).close();
+    }
+
+    /** aop method. */
+    private void aop() {
+
+        // A Spring bean container.
+        final ApplicationContext context =
+                new FileSystemXmlApplicationContext(
+                        "src/main/java/com/spring/aop/beans.xml");
+
+        Camera camera = (Camera) context.getBean("camera");
+        camera.snap();
 
         ((FileSystemXmlApplicationContext) context).close();
     }

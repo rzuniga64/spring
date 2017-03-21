@@ -4,14 +4,14 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="autowirebyname" class="com.spring.autowirebyname.Logger2"
+    <bean id="autowirebyname" class="com.spring.autowire.byname.Logger2"
           autowire="byName">
     </bean>
 
-    <bean id="consoleWriter" class="com.spring.autowirebyname.ConsoleWriter">
+    <bean id="consoleWriter" class="com.spring.autowire.byname.ConsoleWriter">
     </bean>
 
-    <bean id="fileWriter" class="com.spring.autowirebyname.FileWriter">
+    <bean id="fileWriter" class="com.spring.autowire.byname.FileWriter">
     </bean>
 
 </beans>

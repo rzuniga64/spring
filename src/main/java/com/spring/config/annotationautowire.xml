@@ -10,15 +10,15 @@
        http://www.springframework.org/schema/context/spring-context.xsd">
 
     <bean id="annotationwiring"
-          class="com.spring.annotationautowire.Logger6">
+          class="com.spring.annotation.autowire.Logger6">
     </bean>
 
     <bean id="consoleWriter"
-          class="com.spring.annotationautowire.ConsoleWriter">
+          class="com.spring.annotation.autowire.ConsoleWriter">
     </bean>
 
     <bean id="fileWriter"
-          class="com.spring.annotationautowire.FileWriter">
+          class="com.spring.annotation.autowire.FileWriter">
     </bean>
 
     <!-- This tells Spring that we want to configure things using annotations-->

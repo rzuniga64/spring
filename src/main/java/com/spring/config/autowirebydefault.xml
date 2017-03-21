@@ -7,13 +7,13 @@
        default-autowire-candidates="consoleWriter, fileWriter">
 
     <bean id="autowirebydefault"
-          class="com.spring.autowirebydefault.Logger4">
+          class="com.spring.autowire.bydefault.Logger4">
     </bean>
 
     <bean name="consoleWriter"
-          class="com.spring.autowirebydefault.ConsoleWriter">
+          class="com.spring.autowire.bydefault.ConsoleWriter">
     </bean>
 
-    <bean id="fileWriter" class="com.spring.autowirebydefault.FileWriter">
+    <bean id="fileWriter" class="com.spring.autowire.bydefault.FileWriter">
     </bean>
 </beans>

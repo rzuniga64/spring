@@ -12,14 +12,14 @@
          methods uses an interface type in its parameter list then there would
          be ambiguity.
     -->
-    <bean id="autowirebytype" class="com.spring.autowirebytype.Logger"
+    <bean id="autowirebytype" class="com.spring.autowire.bytype.Logger"
           autowire="byType">
     </bean>
 
-    <bean id="consolewriter" class="com.spring.autowirebytype.ConsoleWriter">
+    <bean id="consolewriter" class="com.spring.autowire.bytype.ConsoleWriter">
     </bean>
 
-    <bean id="filewriter" class="com.spring.autowirebytype.FileWriter">
+    <bean id="filewriter" class="com.spring.autowire.bytype.FileWriter">
     </bean>
 
 </beans>

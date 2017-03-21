@@ -20,6 +20,7 @@
           <file>file://$MODULE_DIR$/src/main/java/com/spring/beans/daopattern.xml</file>
           <file>file://$MODULE_DIR$/web/WEB-INF/service-context.xml</file>
           <file>file://$MODULE_DIR$/src/main/java/com/spring/config/daopattern.xml</file>
+          <file>file://$MODULE_DIR$/src/main/java/com/spring/aop/beans.xml</file>
         </fileset>
       </configuration>
     </facet>
@@ -62,5 +63,7 @@
     <orderEntry type="library" name="Maven: commons-beanutils:commons-beanutils:1.8.3" level="project" />
     <orderEntry type="library" name="Maven: commons-digester:commons-digester:1.8" level="project" />
     <orderEntry type="library" name="Maven: commons-logging:commons-logging:1.1.1" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-aspects:4.3.7.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.aspectj:aspectjweaver:1.8.9" level="project" />
   </component>
 </module>

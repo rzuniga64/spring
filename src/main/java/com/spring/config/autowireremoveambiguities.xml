@@ -6,25 +6,25 @@
        default-autowire="byType">
 
     <bean id="autowireremoveambiguities"
-          class="com.spring.autowirearemovembiguities.Logger5"
+          class="com.spring.autowire.removeambiguities.Logger5"
           autowire="byType">
     </bean>
 
     <bean id="consolewriter"
-          class="com.spring.autowirearemovembiguities.ConsoleWriter"
+          class="com.spring.autowire.removeambiguities.ConsoleWriter"
           primary="true">
     </bean>
 
     <bean id="panda"
-          class="com.spring.autowirearemovembiguities.ConsoleWriter">
+          class="com.spring.autowire.removeambiguities.ConsoleWriter">
     </bean>
 
     <bean id="filewriter"
-          class="com.spring.autowirearemovembiguities.FileWriter">
+          class="com.spring.autowire.removeambiguities.FileWriter">
     </bean>
 
     <bean id="squirrel"
-          class="com.spring.autowirearemovembiguities.FileWriter"
+          class="com.spring.autowire.removeambiguities.FileWriter"
           autowire-candidate="false">
     </bean>
 
