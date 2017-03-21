@@ -1,8 +1,7 @@
 package com.spring.aop;
 
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 
 /**
@@ -68,5 +67,60 @@ public class Logger {
     public void aboutToDoCameraRelatedAction() {
 
         System.out.println("Doing something related to cameras...");
+    }
+
+    /**
+     *  afterCameraSnap method.
+     *  Define pointcut as the parameter to the @After annotation.
+     *  This method will always run when the method finishes executing whether
+     *  it throws an exception or not.
+     */
+    @After("cameraSnap()")
+    public void afterCameraSnap() {
+
+        System.out.println("After camera snap...");
+    }
+
+    /**
+     *  afterReturningAdvice method.
+     *  Define pointcut as the parameter to the @After annotation.
+     *  This method will run when the method finishes executing except if
+     *  it throws an exception.
+     */
+    @AfterReturning("cameraSnap()")
+    public void afterReturningAdvice() {
+
+        System.out.println("After returning advice...");
+    }
+
+    /**
+     *  afterThrowingAdvice method.
+     *  Define pointcut as the parameter to the @After annotation.
+     *  This method will run when the method finishes executing when
+     *  it throws an exception.
+     */
+    @AfterThrowing("cameraSnap()")
+    public void afterThrowingAdvice() {
+
+        System.out.println("After throwing advice...");
+    }
+
+    /**
+     *  aroundAdvice method.
+     *  Runs some code before the method proceeds. And then it runs some more
+     *  code after the target method runs.
+     */
+    @Around("cameraSnap()")
+    public void aroundAdvice(final ProceedingJoinPoint p) {
+
+        System.out.println("Around advice (before)");
+
+        try {
+            p.proceed();
+        } catch (Throwable e) {
+            System.out.println("In around advice: " + e.getMessage());
+        }
+
+        System.out.println("Around advice (after)");
     }
 }

@@ -104,8 +104,9 @@ public final class App {
         app.getplaceholdervaluesfrombean();
         app.update();
         app.batchupdate();
-        app.transactions();*/
-        app.aop();
+        app.transactions();
+        app.aop();*/
+        app.aopadvisetypes();
 
         /* Aspect oriented programming is extending existing classes without
            modifying their existing code base.
@@ -826,6 +827,25 @@ public final class App {
             lens.zoom(5);
         } catch (Exception e) {
             e.getMessage();
+        }
+
+        ((FileSystemXmlApplicationContext) context).close();
+    }
+
+    private void aopadvisetypes() {
+
+        // A Spring bean container.
+        final ApplicationContext context =
+                new FileSystemXmlApplicationContext(
+                        "src/main/java/com/spring/aop/beans.xml");
+
+        Camera camera = (Camera) context.getBean("camera");
+
+        try {
+            camera.snap();
+
+        } catch (Exception e) {
+            System.out.println("Caught exception: " + e.getMessage());
         }
 
         ((FileSystemXmlApplicationContext) context).close();
