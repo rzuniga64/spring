@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 public class Car {
 
     /** start method. */
-    public void start() {
+    public void withinDemo() {
         System.out.println("Car starting");
     }
 }

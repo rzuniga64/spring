@@ -48,7 +48,7 @@ public class Logger {
      *  This pointcut will run for any argument with any name with any return
      *  type. */
     @Pointcut("within(com.spring.aop.Car)")
-    public void start() { }
+    public void withinDemo() { }
 
     /**
      * aboutToTakePhoto method.
@@ -144,8 +144,8 @@ public class Logger {
      *  This will match any joint point, any method within Spring, within the
      *  Car class
      */
-    @Before("start()")
-    public void aboutToStartCar() {
+    @Before("withinDemo()")
+    public void withDemoAdvice() {
 
         System.out.println("About to start car...");
     }

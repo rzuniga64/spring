@@ -899,7 +899,7 @@ public final class App {
                         "src/main/java/com/spring/aop/beans.xml");
 
         Car car = (Car) context.getBean("car");
-        car.start();
+        car.withinDemo();
 
         ((FileSystemXmlApplicationContext) context).close();
     }
