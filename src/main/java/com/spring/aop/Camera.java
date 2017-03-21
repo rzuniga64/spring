@@ -9,8 +9,10 @@ import org.springframework.stereotype.Component;
 public class Camera {
 
     /**
-     *  snap method.
-     *  @throws Exception Exception*/
+     * snap method.
+     *
+     * @throws Exception Exception
+     */
     public void snap() throws Exception {
         System.out.println("SNAP!");
 
@@ -19,6 +21,7 @@ public class Camera {
 
     /**
      * snap method.
+     *
      * @param exposure exposure
      */
     public void snap(final int exposure) {
@@ -27,6 +30,7 @@ public class Camera {
 
     /**
      * snap method.
+     *
      * @param name name
      * @return the name
      */
@@ -36,7 +40,9 @@ public class Camera {
         return name;
     }
 
-    /** snapNighttime method. */
+    /**
+     * snapNighttime method.
+     */
     public void snapNighttime() {
         System.out.println("SNAP! Night mode.");
     }

@@ -8,6 +8,7 @@ public class Lens {
 
     /**
      * zoom method.
+     *
      * @param factor factor
      */
     public void zoom(final int factor) {

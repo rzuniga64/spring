@@ -28,15 +28,15 @@ public class Logger {
     //@Pointcut("execution(void com.spring.aop.Camera.snap(..))")
     //@Pointcut("execution(* com.spring.aop.Camera.*(..))")
     @Pointcut("execution(* com.spring.aop.Camera.*(..))")
-    public void cameraSnap() {}
+    public void cameraSnap() { }
 
     /** Dummy method to define a reusable AOP pointcut. */
     @Pointcut("execution(* com.spring.aop.Camera.snap(String))")
-    public void cameraSnapName() {}
+    public void cameraSnapName() { }
 
     /** Dummy method to define a reusable AOP pointcut. */
     @Pointcut("execution(* com.spring.aop.*.*(..))")
-    public void cameraRelatedAction() {}
+    public void cameraRelatedAction() { }
 
     /**
      * aboutToTakePhoto method.
