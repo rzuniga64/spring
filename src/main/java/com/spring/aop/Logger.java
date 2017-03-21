@@ -22,16 +22,30 @@ import org.springframework.stereotype.Component;
 public class Logger {
 
     /** Dummy method to define a reusable AOP pointcut. */
-    @Pointcut("execution(void com.spring.aop.Camera.snap())")
+    @Pointcut("execution(void com.spring.aop.Camera.snap(..))")
     public void cameraSnap() {}
 
+    /** Dummy method to define a reusable AOP pointcut. */
+    @Pointcut("execution(String com.spring.aop.Camera.snap(String))")
+    public void cameraSnapName() {}
+
     /**
-     * aboutToTakePhote method.
+     * aboutToTakePhoto method.
      * Define pointcut as the parameter to the @Before annoation.
      */
     @Before("cameraSnap()")
     public void aboutToTakePhoto() {
 
         System.out.println("About to take photo...");
+    }
+
+    /**
+     * aboutToTakePhotoWithName method.
+     * Define pointcut as the parameter to the @Before annoation.
+     */
+    @Before("cameraSnapName()")
+    public void aboutToTakePhotoWithName() {
+
+        System.out.println("About to take photo with name...");
     }
 }

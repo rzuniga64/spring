@@ -816,7 +816,13 @@ public final class App {
                         "src/main/java/com/spring/aop/beans.xml");
 
         Camera camera = (Camera) context.getBean("camera");
-        camera.snap();
+        try {
+            camera.snap();
+            camera.snap(1000);
+            camera.snap("Prague castle");
+        } catch (Exception e) {
+            e.getMessage();
+        }
 
         ((FileSystemXmlApplicationContext) context).close();
     }
