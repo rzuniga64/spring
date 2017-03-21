@@ -26,6 +26,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class Logger {
 
+    /**************************** POINTCUTS ***********************************/
+
     /**
      *  Dummy method to define a reusable AOP pointcut.
      *  This pointcut will run for any argument with any name with any return
@@ -50,6 +52,26 @@ public class Logger {
     @Pointcut("within(com.spring.aop.Car)")
     public void withinDemo() { }
 
+    /**
+     *  Dummy method to define a reusable AOP pointcut.
+     *  Specifies when we want to run any method within a class.
+     *  Defines a pointcut for any method with the class's target type.
+     *  We cannot use wildcards here! We can use interfaces the class
+     *  implements.
+     */
+    @Pointcut("target(com.spring.aop.Car)")
+    public void targetDemo() { }
+
+    /**
+     *  Dummy method to define a reusable AOP pointcut.
+     *  Specifies when we want to run any method within a class.
+     *  Refers to the type of the proxy bean created from that class. A proxy
+     *  bean is created when a class implements an interface.
+     */
+    @Pointcut("this(com.spring.aop.Car)")
+    public void thisDemo() { }
+
+    /****************************** ADVICE*************************************/
     /**
      * aboutToTakePhoto method.
      * Define pointcut as the parameter to the @Before annotation.
@@ -139,7 +161,7 @@ public class Logger {
     }
 
     /**
-     *  aboutToStartCar method.
+     *  withDemoAdvice method.
      *  Define pointcut as the parameter to the @Before annotation.
      *  This will match any joint point, any method within Spring, within the
      *  Car class
@@ -147,7 +169,31 @@ public class Logger {
     @Before("withinDemo()")
     public void withDemoAdvice() {
 
-        System.out.println("About to start car...");
+        System.out.println("********** BEFORE DEMO..");
+    }
+
+    /**
+     *  targetDemoAdvice method.
+     *  Define pointcut as the parameter to the @Before annotation.
+     *  This should only work for a proxy class not the class itself. But it
+     *  seems to work for the class as well.
+     */
+    @Before("targetDemo()")
+    public void targetDemoAdvice() {
+
+        System.out.println("********** TARGET DEMO..");
+    }
+
+    /**
+     *  thisDemoAdvice method.
+     *  Define pointcut as the parameter to the @Before annotation.
+     *  This will match any joint point, any method within Spring, within the
+     *  Car class
+     */
+    @Before("thisDemo()")
+    public void thisDemoAdvice() {
+
+        System.out.println("********** THIS DEMO..");
     }
 }
 
