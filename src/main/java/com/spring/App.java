@@ -5,6 +5,7 @@ import com.spring.annotation.resource.Logger8;
 import com.spring.annotation.usingqualifiers.Logger7;
 import com.spring.annotation.setpropertyvalues.Robot;
 import com.spring.aop.Camera;
+import com.spring.aop.Lens;
 import com.spring.autobeandiscovery.Logger10;
 import com.spring.autowire.removeambiguities.Logger5;
 import com.spring.autowire.byconstructor.Logger3;
@@ -816,10 +817,13 @@ public final class App {
                         "src/main/java/com/spring/aop/beans.xml");
 
         Camera camera = (Camera) context.getBean("camera");
+        Lens lens = (Lens) context.getBean("lens");
         try {
             camera.snap();
             camera.snap(1000);
             camera.snap("Prague castle");
+            camera.snapNighttime();
+            lens.zoom(5);
         } catch (Exception e) {
             e.getMessage();
         }

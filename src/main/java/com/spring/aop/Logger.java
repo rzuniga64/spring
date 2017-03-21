@@ -21,17 +21,26 @@ import org.springframework.stereotype.Component;
 @Component
 public class Logger {
 
-    /** Dummy method to define a reusable AOP pointcut. */
-    @Pointcut("execution(void com.spring.aop.Camera.snap(..))")
+    /**
+     *  Dummy method to define a reusable AOP pointcut.
+     *  This pointcut will run for any argument with any name with any return
+     *  type. */
+    //@Pointcut("execution(void com.spring.aop.Camera.snap(..))")
+    //@Pointcut("execution(* com.spring.aop.Camera.*(..))")
+    @Pointcut("execution(* com.spring.aop.Camera.*(..))")
     public void cameraSnap() {}
 
     /** Dummy method to define a reusable AOP pointcut. */
-    @Pointcut("execution(String com.spring.aop.Camera.snap(String))")
+    @Pointcut("execution(* com.spring.aop.Camera.snap(String))")
     public void cameraSnapName() {}
+
+    /** Dummy method to define a reusable AOP pointcut. */
+    @Pointcut("execution(* com.spring.aop.*.*(..))")
+    public void cameraRelatedAction() {}
 
     /**
      * aboutToTakePhoto method.
-     * Define pointcut as the parameter to the @Before annoation.
+     * Define pointcut as the parameter to the @Before annotation.
      */
     @Before("cameraSnap()")
     public void aboutToTakePhoto() {
@@ -41,11 +50,23 @@ public class Logger {
 
     /**
      * aboutToTakePhotoWithName method.
-     * Define pointcut as the parameter to the @Before annoation.
+     * Define pointcut as the parameter to the @Before annotation.
      */
     @Before("cameraSnapName()")
     public void aboutToTakePhotoWithName() {
 
         System.out.println("About to take photo with name...");
+    }
+
+    /**
+     * aboutToDoCameraRelatedAction
+     * Define pointcut as the parameter to the @Before annotation.
+     * This method will run before any method of a class in the package is
+     * called.
+     */
+    @Before("cameraRelatedAction()")
+    public void aboutToDoCameraRelatedAction() {
+
+        System.out.println("Doing something related to cameras...");
     }
 }
