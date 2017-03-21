@@ -4,8 +4,7 @@ import com.spring.annotation.autowire.Logger6;
 import com.spring.annotation.resource.Logger8;
 import com.spring.annotation.usingqualifiers.Logger7;
 import com.spring.annotation.setpropertyvalues.Robot;
-import com.spring.aop.Camera;
-import com.spring.aop.Lens;
+import com.spring.aop.*;
 import com.spring.autobeandiscovery.Logger10;
 import com.spring.autowire.removeambiguities.Logger5;
 import com.spring.autowire.byconstructor.Logger3;
@@ -105,8 +104,9 @@ public final class App {
         app.update();
         app.batchupdate();
         app.transactions();
-        app.aop();*/
-        app.aopadvisetypes();
+        app.aop();
+        app.aopadvisetypes();*/
+        app.aopproxiesinterfaces();
 
         /* Aspect oriented programming is extending existing classes without
            modifying their existing code base.
@@ -832,6 +832,7 @@ public final class App {
         ((FileSystemXmlApplicationContext) context).close();
     }
 
+    /** aopadvisetypes method. */
     private void aopadvisetypes() {
 
         // A Spring bean container.
@@ -840,6 +841,37 @@ public final class App {
                         "src/main/java/com/spring/aop/beans.xml");
 
         Camera camera = (Camera) context.getBean("camera");
+
+        try {
+            camera.snap();
+
+        } catch (Exception e) {
+            System.out.println("Caught exception: " + e.getMessage());
+        }
+
+        ((FileSystemXmlApplicationContext) context).close();
+    }
+
+    /**
+     *  aopadvisetypes method.
+     *  To implement aspects when you ask for your bean Spring gives you a proxy
+     *  which is a class ( subclass of camera) that has code that will run code
+     *  in your aspect. It combines your aspect with your target class in order
+     *  to run your advice.
+     */
+    private void aopproxiesinterfaces() {
+
+        // A Spring bean container.
+        final ApplicationContext context =
+                new FileSystemXmlApplicationContext(
+                        "src/main/java/com/spring/aop/beans.xml");
+
+        Camera camera = (Camera) context.getBean("camera");
+        System.out.println("Class of camera bean: " + camera.getClass());
+        System.out.println(camera instanceof Camera);
+        System.out.println(camera instanceof PhotoSnapper);
+        System.out.println(camera instanceof Machine);
+        //System.out.println(camera instanceof ICamera);
 
         try {
             camera.snap();

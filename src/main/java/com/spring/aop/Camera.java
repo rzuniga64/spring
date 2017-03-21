@@ -6,7 +6,12 @@ import org.springframework.stereotype.Component;
  *  Camera class.
  */
 @Component
-public class Camera {
+public class Camera implements PhotoSnapper, Machine {
+
+    /** Constructor. */
+    public Camera() {
+        System.out.println("Hello from camera constructor");
+    }
 
     /**
      * snap method.
