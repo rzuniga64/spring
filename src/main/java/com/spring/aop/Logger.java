@@ -153,6 +153,32 @@ public class Logger {
     @Pointcut("target(com.spring.aop.Cat)")
     public void getTargetMethodArguments() { }
 
+    /**
+     *  Dummy method to define a reusable AOP pointcut.
+     *  Getting arguments using args.
+     */
+    @Pointcut("args(int, double)")
+    public void getArgumentsUsingArgs() { }
+
+
+    /**
+     *  Dummy method to define a reusable AOP pointcut.
+     *  Getting arguments using names of args
+     */
+    @Pointcut("args(int, double)")
+    public void getArgumentsUsingTypesOfVars() { }
+
+    /**
+     *  Dummy method to define a reusable AOP pointcut.
+     *  Getting arguments using names of args. Still going to match anything
+     *  taking an int and a double.
+     *  @param exposure exposure
+     *  @param aperture aperture
+     */
+    @Pointcut("args(exposure, aperture)")
+    public void getArgumentsUsingNamesOfVars(final int exposure,
+                                             final double aperture) { }
+
     /****************************** ADVICE*************************************/
     /**
      * aboutToTakePhoto method.
@@ -343,6 +369,49 @@ public class Logger {
         for (Object obj: jp.getArgs()) {
             System.out.println("ARG: " + obj);
         }
+    }
+
+    /**
+     *  getArgumentsUsingArgsDemo method.
+     *  Getting arguments using args.
+     *  @param jp jp
+     */
+    @Before("getArgumentsUsingArgs()")
+    public void getArgumentsUsingArgsDemo(final JoinPoint jp) {
+
+        System.out.println("****GET TARGET METHOD ARGUMENTS USING ARGS DEMO..");
+        for (Object obj: jp.getArgs()) {
+            System.out.println("ARG: " + obj);
+        }
+    }
+
+    /**
+     *  getArgumentsUsingNamesOfArgsDemo method.
+     *  Getting arguments using types of args.
+     *  @param jp jp
+     */
+    @Before("getArgumentsUsingTypesOfVars()")
+    public void getArgumentsUsingTypesOfArgsDemo(final JoinPoint jp) {
+
+        System.out.println("****GET TARGET METHOD ARGUMENTS USING TYPES OF ARGS DEMO..");
+        for (Object obj: jp.getArgs()) {
+            System.out.println("ARG: " + obj);
+        }
+    }
+
+    /**
+     *  getArgumentsUsingNamesOfArgsDemo method.
+     *  Getting arguments using names of args. Still gong to match anything
+     *  taking an int and a double.
+     *  @param jp jp
+     */
+    @Before("getArgumentsUsingNamesOfVars(exposure, aperture)")
+    public void getArgumentsUsingNamesOfArgsDemo(final JoinPoint jp,
+                                                 final int exposure,
+                                                 final double aperture) {
+
+        System.out.println("****GET TARGET METHOD ARGUMENTS USING NAMES OF ARGS DEMO..");
+        System.out.printf("exposure %d, aperture %.2f\n", exposure, aperture);
     }
 }
 

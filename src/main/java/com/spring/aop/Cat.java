@@ -1,6 +1,5 @@
 package com.spring.aop;
 
-import org.apache.http.annotation.Obsolete;
 import org.springframework.stereotype.Component;
 
 /** Cat class. */

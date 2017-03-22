@@ -112,9 +112,9 @@ public final class App {
         app.aopannotationspecific2();
         app.aopatannotation();
         app.aopatargsannotation();
-        app.aopbeanannotation();
-        app.aopargspd();*/
-        app.gettargetarguments();
+        app.aopbeanannotation();*/
+        app.aopargspcd();
+        //app.gettargetarguments();
 
 
         /* Aspect oriented programming is extending existing classes without
@@ -1007,7 +1007,7 @@ public final class App {
      *  aopannotationspecific2 method.
      *
      */
-    private void aopargspd() {
+    private void aopargspcd() {
 
         // A Spring bean container.
         final ApplicationContext context =
