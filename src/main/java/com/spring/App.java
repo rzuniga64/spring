@@ -106,8 +106,13 @@ public final class App {
         app.transactions();
         app.aop();
         app.aopadvisetypes();
-        app.aopproxiesinterfaces();*/
+        app.aopproxiesinterfaces();
         app.aopwithinpointcut();
+        app.aopannotationspecific();
+        app.aopannotationspecific2();
+        app.aopatannotation();*/
+        app.aopatargsannotation();
+
 
         /* Aspect oriented programming is extending existing classes without
            modifying their existing code base.
@@ -900,6 +905,80 @@ public final class App {
 
         Car car = (Car) context.getBean("car");
         car.withinDemo();
+
+        ((FileSystemXmlApplicationContext) context).close();
+    }
+
+    /**
+     *  aopannotationspecific method.
+     *  To implement aspects when you ask for your bean Spring gives you a proxy
+     *  which is a class ( subclass of camera) that has code that will run code
+     *  in your aspect. It combines your aspect with your target class in order
+     *  to run your advice.
+     */
+    private void aopannotationspecific() {
+
+        // A Spring bean container.
+        final ApplicationContext context =
+                new FileSystemXmlApplicationContext(
+                        "src/main/java/com/spring/aop/beans.xml");
+
+        Dog dog = (Dog) context.getBean("dog");
+        dog.annotationSpecificDemo();
+
+        Cat cat = (Cat) context.getBean("cat");
+        cat.annotationSpecificDemo();
+
+        ((FileSystemXmlApplicationContext) context).close();
+    }
+
+    /**
+     *  aopannotationspecific2 method.
+     *
+     */
+    private void aopannotationspecific2() {
+
+        // A Spring bean container.
+        final ApplicationContext context =
+                new FileSystemXmlApplicationContext(
+                        "src/main/java/com/spring/aop/beans.xml");
+
+        Cat cat = (Cat) context.getBean("cat");
+        cat.annotationSpecificDemo();
+
+        ((FileSystemXmlApplicationContext) context).close();
+    }
+
+    /**
+     *  aopannotationspecific2 method.
+     *
+     */
+    private void aopatannotation() {
+
+        // A Spring bean container.
+        final ApplicationContext context =
+                new FileSystemXmlApplicationContext(
+                        "src/main/java/com/spring/aop/beans.xml");
+
+        Cat cat = (Cat) context.getBean("cat");
+        cat.atAnnotationDemo();
+
+        ((FileSystemXmlApplicationContext) context).close();
+    }
+
+    /**
+     *  aopannotationspecific2 method.
+     *
+     */
+    private void aopatargsannotation() {
+
+        // A Spring bean container.
+        final ApplicationContext context =
+                new FileSystemXmlApplicationContext(
+                        "src/main/java/com/spring/aop/beans.xml");
+
+        Cat cat = (Cat) context.getBean("cat");
+        cat.atArgsAnnotationDemo();
 
         ((FileSystemXmlApplicationContext) context).close();
     }

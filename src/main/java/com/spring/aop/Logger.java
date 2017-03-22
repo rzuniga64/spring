@@ -71,6 +71,41 @@ public class Logger {
     @Pointcut("this(com.spring.aop.Car)")
     public void thisDemo() { }
 
+    /**
+     *  Dummy method to define a reusable AOP pointcut.
+     *  Specifies when we want to run any method within a class.
+     *  Refers to the type of the proxy bean created from that class. A proxy
+     *  bean is created when a class implements an interface.
+     */
+    @Pointcut("within(@org.springframework.stereotype.Component com.spring.aop.Dog)")
+    public void somePointcut() { }
+
+    /**
+     *  Dummy method to define a reusable AOP pointcut.
+     *  Target all methods within all classes that have the @Component
+     *  annotation using the @target annotation. @target and @within are almost
+     *  the same as far as is known.
+     */
+    @Pointcut("@target(org.springframework.stereotype.Component)")
+    public void annotationSpecific() { }
+
+    /**
+     *  Dummy method to define a reusable AOP pointcut.
+     *  Target all methods @Deprecated annotation using the @annotation
+     *  annotation.
+     */
+    @Pointcut("@annotation(Deprecated)")
+    public void atAnnotation() { }
+
+    /**
+     *  Dummy method to define a reusable AOP pointcut.
+     *  Target arguments passed into a method where the class being passed in,
+     *  the actual object, has the annotation that you specify (@Component in
+     *  this example).
+     */
+    @Pointcut("@args(java.lang.Deprecated)")
+    public void atArgsAnnotation() { }
+
     /****************************** ADVICE*************************************/
     /**
      * aboutToTakePhoto method.
@@ -194,6 +229,40 @@ public class Logger {
     public void thisDemoAdvice() {
 
         System.out.println("********** THIS DEMO..");
+    }
+
+    /**
+     *  somePointcutDemo method.
+     *  Define pointcut as the parameter to the @Before annotation.
+     *  This will match any joint point, any method within Spring, within the
+     *  Car class
+     */
+    @Before("somePointcut()")
+    public void somePointcutDemo() {
+
+        System.out.println("********** ANNOTATION SPECIFIC DEMO..");
+    }
+
+    /**
+     *  annotationSpecificDemo method.
+     *  Define pointcut as the parameter to the @Before annotation.
+     *
+     */
+    @Before("annotationSpecific()")
+    public void annotationSpecificDemo() {
+
+        System.out.println("**********@ANNOTATION SPECIFIC DEMO..");
+    }
+
+    /**
+     *  atargsannotationDemo method.
+     *
+     *
+     */
+    @Before("atArgsAnnotation()")
+    public void atArgsAnnotationDemo() {
+
+        System.out.println("**********@ARGS SPECIFIC DEMO..");
     }
 }
 
