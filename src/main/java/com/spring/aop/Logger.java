@@ -100,11 +100,20 @@ public class Logger {
     /**
      *  Dummy method to define a reusable AOP pointcut.
      *  Target arguments passed into a method where the class being passed in,
-     *  the actual object, has the annotation that you specify (@Component in
+     *  the actual object, has the annotation that you specify (@Deprecated in
      *  this example).
      */
     @Pointcut("@args(java.lang.Deprecated)")
     public void atArgsAnnotation() { }
+
+    /**
+     *  Dummy method to define a reusable AOP pointcut.
+     *  Target a bean using bean pointcut annotation.
+     *  Asterisk means 0 or more characters. You can use the asterisk at the
+     *  beginning or end.
+     */
+    @Pointcut("bean(*cat)")
+    public void beanAnnotation() { }
 
     /****************************** ADVICE*************************************/
     /**
@@ -255,14 +264,21 @@ public class Logger {
     }
 
     /**
-     *  atargsannotationDemo method.
-     *
-     *
+     *  atArgsAnnotationDemo method.
      */
     @Before("atArgsAnnotation()")
     public void atArgsAnnotationDemo() {
 
         System.out.println("**********@ARGS SPECIFIC DEMO..");
+    }
+
+    /**
+     *  beanAnnotationDemo method.
+     */
+    @Before("beanAnnotation()")
+    public void beanAnnotationDemo() {
+
+        System.out.println("**********BEAN ANNOTATION SPECIFIC DEMO..");
     }
 }
 

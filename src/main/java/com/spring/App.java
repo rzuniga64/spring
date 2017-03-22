@@ -110,8 +110,9 @@ public final class App {
         app.aopwithinpointcut();
         app.aopannotationspecific();
         app.aopannotationspecific2();
-        app.aopatannotation();*/
-        app.aopatargsannotation();
+        app.aopatannotation();
+        app.aopatargsannotation();*/
+        app.aopbeanannotation();
 
 
         /* Aspect oriented programming is extending existing classes without
@@ -979,6 +980,23 @@ public final class App {
 
         Cat cat = (Cat) context.getBean("cat");
         cat.atArgsAnnotationDemo();
+
+        ((FileSystemXmlApplicationContext) context).close();
+    }
+
+    /**
+     *  aopannotationspecific2 method.
+     *
+     */
+    private void aopbeanannotation() {
+
+        // A Spring bean container.
+        final ApplicationContext context =
+                new FileSystemXmlApplicationContext(
+                        "src/main/java/com/spring/aop/beans.xml");
+
+        Cat cat = (Cat) context.getBean("cat");
+        cat.annotationSpecificDemo();
 
         ((FileSystemXmlApplicationContext) context).close();
     }
