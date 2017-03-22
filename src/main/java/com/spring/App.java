@@ -111,8 +111,9 @@ public final class App {
         app.aopannotationspecific();
         app.aopannotationspecific2();
         app.aopatannotation();
-        app.aopatargsannotation();*/
-        app.aopbeanannotation();
+        app.aopatargsannotation();
+        app.aopbeanannotation();*/
+        app.aopargspd();
 
 
         /* Aspect oriented programming is extending existing classes without
@@ -997,6 +998,33 @@ public final class App {
 
         Cat cat = (Cat) context.getBean("cat");
         cat.annotationSpecificDemo();
+
+        ((FileSystemXmlApplicationContext) context).close();
+    }
+
+    /**
+     *  aopannotationspecific2 method.
+     *
+     */
+    private void aopargspd() {
+
+        // A Spring bean container.
+        final ApplicationContext context =
+                new FileSystemXmlApplicationContext(
+                        "src/main/java/com/spring/aop/beans.xml");
+
+        Camera camera = (Camera) context.getBean("camera");
+
+        try {
+            camera.snap();
+            camera.snap(500);
+            camera.snap(1.8);
+            camera.snap(500, 1.8);
+            camera.snapNighttime();
+
+        } catch (Exception e) {
+            System.out.println("Caught exception: " + e.getMessage());
+        }
 
         ((FileSystemXmlApplicationContext) context).close();
     }

@@ -48,6 +48,25 @@ public class Camera implements PhotoSnapper, Machine {
     }
 
     /**
+     * snap method.
+     * @param exposure exposure
+     */
+    public void snap(final double exposure) {
+        System.out.println("SNAP! Exposure:" + exposure);
+    }
+
+    /**
+     * snap method.
+     * @param exposure exposure
+     * @param aperture aperture
+     */
+    public void snap(final int exposure, final double aperture) {
+        System.out.printf("SNAP with exposure %d aperture %.2f\n", exposure,
+                aperture);
+
+    }
+
+    /**
      * snapNighttime method.
      */
     public void snapNighttime() {

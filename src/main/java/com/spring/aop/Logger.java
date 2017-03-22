@@ -115,6 +115,36 @@ public class Logger {
     @Pointcut("bean(*cat)")
     public void beanAnnotation() { }
 
+    /**
+     *  Dummy method to define a reusable AOP pointcut.
+     *  Target a bean using Args PCD.
+     */
+    @Pointcut("bean(*cat)")
+    public void argsPCDAnnotation() { }
+
+    /**
+     *  Dummy method to define a reusable AOP pointcut.
+     *  Match any methods that take no arguments.
+     *  Actually we can match a method with different arguments.
+     */
+    @Pointcut("args()")
+    //@Pointcut("args(int)")
+    //@Pointcut("args(int, double)")
+
+    //target any method that takes Camera as its argument
+    //@Pointcut("args(com.spring.aop.Camera)")
+
+    // can use wildcards as a parameter
+    // @Pointcut("args(int, *)")
+
+    // match any method that starts with int and has zero or more arguments
+    // @Pointcut("args
+
+    // @Pointcut("args(Object)")
+    // @Pointcut("args(INTEGER)")
+    // @Pointcut("args(DOUBLE)")
+    public void argsPCD() { }
+
     /****************************** ADVICE*************************************/
     /**
      * aboutToTakePhoto method.
@@ -279,6 +309,17 @@ public class Logger {
     public void beanAnnotationDemo() {
 
         System.out.println("**********BEAN ANNOTATION SPECIFIC DEMO..");
+    }
+
+    /**
+     *  argsPCDDemo method.
+     *  Match any methods that take no arguments.
+     *  Actually we can match a method with different arguments.
+     */
+    @Before("argsPCD()")
+    public void argsPCDDemo() {
+
+        System.out.println("**********ARGS PCD SPECIFIC DEMO..");
     }
 }
 

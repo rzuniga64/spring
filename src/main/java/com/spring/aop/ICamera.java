@@ -16,6 +16,19 @@ public interface ICamera {
     void snap(int exposure);
 
     /**
+     * snap method.
+     * @param exposure exposure
+     */
+    void snap(double exposure);
+
+    /**
+     * snap method.
+     * @param exposure exposure
+     * @param aperture aperture
+     */
+    void snap(int exposure, double aperture);
+
+    /**
      * snap(String) method.
      * @param name name
      * @return a String
