@@ -1,7 +1,13 @@
 package com.spring.aop;
 
-/** Machine interface. */
-public interface Machine {
+/** Machine class. */
+public class Machine implements IMachine {
 
+    /**
+     *  start method.
+     */
+    @Override
+    public void start() {
+        System.out.println("Machine starting ...");
+    }
 }
-

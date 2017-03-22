@@ -114,8 +114,9 @@ public final class App {
         app.aopatargsannotation();
         app.aopbeanannotation();
         app.aopargspcd();
-        app.gettargetarguments();*/
-        app.combiningPointcuts();
+        app.gettargetarguments();
+        app.combiningPointcuts();*/
+        app.introductions();
 
 
         /* Aspect oriented programming is extending existing classes without
@@ -827,7 +828,7 @@ public final class App {
                 new FileSystemXmlApplicationContext(
                         "src/main/java/com/spring/aop/beans.xml");
 
-        Camera camera = (Camera) context.getBean("camera");
+        Camera camera = (Camera) context.getBean("machin");
         Lens lens = (Lens) context.getBean("lens");
         try {
             camera.snap();
@@ -850,7 +851,7 @@ public final class App {
                 new FileSystemXmlApplicationContext(
                         "src/main/java/com/spring/aop/beans.xml");
 
-        Camera camera = (Camera) context.getBean("camera");
+        Camera camera = (Camera) context.getBean("machin");
 
         try {
             camera.snap();
@@ -876,11 +877,11 @@ public final class App {
                 new FileSystemXmlApplicationContext(
                         "src/main/java/com/spring/aop/beans.xml");
 
-        Camera camera = (Camera) context.getBean("camera");
+        Camera camera = (Camera) context.getBean("machin");
         System.out.println("Class of camera bean: " + camera.getClass());
         System.out.println(camera instanceof Camera);
         System.out.println(camera instanceof PhotoSnapper);
-        System.out.println(camera instanceof Machine);
+        System.out.println(camera instanceof IMachin);
         //System.out.println(camera instanceof ICamera);
 
         try {
@@ -1014,7 +1015,7 @@ public final class App {
                 new FileSystemXmlApplicationContext(
                         "src/main/java/com/spring/aop/beans.xml");
 
-        Camera camera = (Camera) context.getBean("camera");
+        Camera camera = (Camera) context.getBean("machin");
 
         try {
             camera.snap();
@@ -1055,7 +1056,6 @@ public final class App {
 
     /**
      *  aopannotationspecific2 method.
-     *
      */
     private void combiningPointcuts() {
 
@@ -1064,12 +1064,39 @@ public final class App {
                 new FileSystemXmlApplicationContext(
                         "src/main/java/com/spring/aop/beans.xml");
 
-        Camera camera = (Camera) context.getBean("camera");
+        Camera camera = (Camera) context.getBean("machin");
 
         try {
             camera.snap();
             camera.snap(500, 1.8);
 
+        } catch (Exception e) {
+            System.out.println("Caught exception: " + e.getMessage());
+        }
+
+        ((FileSystemXmlApplicationContext) context).close();
+    }
+
+    /**
+     *  aopannotationspecific2 method.
+     *
+     */
+    private void introductions() {
+
+        // A Spring bean container.
+        final ApplicationContext context =
+                new FileSystemXmlApplicationContext(
+                        "src/main/java/com/spring/aop/beans.xml");
+        try {
+            IBlender blender = (IBlender) context.getBean("blender");
+            blender.blend();
+
+            ((IMachine) blender).start();
+
+            IFan fan = (IFan) context.getBean("fan");
+            fan.activate(5);
+
+            ((IMachine) fan).start();
         } catch (Exception e) {
             System.out.println("Caught exception: " + e.getMessage());
         }
