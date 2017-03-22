@@ -112,9 +112,10 @@ public final class App {
         app.aopannotationspecific2();
         app.aopatannotation();
         app.aopatargsannotation();
-        app.aopbeanannotation();*/
+        app.aopbeanannotation();
         app.aopargspcd();
-        //app.gettargetarguments();
+        app.gettargetarguments();*/
+        app.combiningPointcuts();
 
 
         /* Aspect oriented programming is extending existing classes without
@@ -1005,7 +1006,6 @@ public final class App {
 
     /**
      *  aopannotationspecific2 method.
-     *
      */
     private void aopargspcd() {
 
@@ -1045,6 +1045,30 @@ public final class App {
 
         try {
             cat.getTargetArgumentsDemo("purr");
+
+        } catch (Exception e) {
+            System.out.println("Caught exception: " + e.getMessage());
+        }
+
+        ((FileSystemXmlApplicationContext) context).close();
+    }
+
+    /**
+     *  aopannotationspecific2 method.
+     *
+     */
+    private void combiningPointcuts() {
+
+        // A Spring bean container.
+        final ApplicationContext context =
+                new FileSystemXmlApplicationContext(
+                        "src/main/java/com/spring/aop/beans.xml");
+
+        Camera camera = (Camera) context.getBean("camera");
+
+        try {
+            camera.snap();
+            camera.snap(500, 1.8);
 
         } catch (Exception e) {
             System.out.println("Caught exception: " + e.getMessage());

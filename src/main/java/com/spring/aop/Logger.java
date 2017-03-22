@@ -179,6 +179,13 @@ public class Logger {
     public void getArgumentsUsingNamesOfVars(final int exposure,
                                              final double aperture) { }
 
+
+    /**
+     *  Dummy method to define a reusable AOP pointcut.
+     *  Combining pointcuts
+     */
+    @Pointcut("target(com.spring.aop.Camera)")
+    public void targetCamera() { }
     /****************************** ADVICE*************************************/
     /**
      * aboutToTakePhoto method.
@@ -411,6 +418,18 @@ public class Logger {
                                                  final double aperture) {
 
         System.out.println("****GET TARGET METHOD ARGUMENTS USING NAMES OF ARGS DEMO..");
+        System.out.printf("exposure %d, aperture %.2f\n", exposure, aperture);
+    }
+
+    /**
+     *  combingPointcutsDemo method.
+     *  Combining Pointcuts
+     */
+    @Before("targetCamera() && getArgumentsUsingNamesOfVars(exposure, aperture)")
+    public void combingPointcutsDemo(final int exposure,
+                                     final double aperture) {
+
+        System.out.println("****COMBINING POINTCUTS DEMO..");
         System.out.printf("exposure %d, aperture %.2f\n", exposure, aperture);
     }
 }
