@@ -1,5 +1,6 @@
 package com.spring.aop;
 
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.annotation.Aspect;
@@ -144,6 +145,13 @@ public class Logger {
     // @Pointcut("args(INTEGER)")
     // @Pointcut("args(DOUBLE)")
     public void argsPCD() { }
+
+    /**
+     *  Dummy method to define a reusable AOP pointcut.
+     *  Getting target method arguments.
+     */
+    @Pointcut("target(com.spring.aop.Cat)")
+    public void getTargetMethodArguments() { }
 
     /****************************** ADVICE*************************************/
     /**
@@ -320,6 +328,21 @@ public class Logger {
     public void argsPCDDemo() {
 
         System.out.println("**********ARGS PCD SPECIFIC DEMO..");
+    }
+
+    /**
+     *  argsPCDDemo method.
+     *  Match any methods that take no arguments.
+     *  Actually we can match a method with different arguments.
+     *  @param jp jp
+     */
+    @Before("getTargetMethodArguments()")
+    public void getTargetMethodArgumentsDemo(final JoinPoint jp) {
+
+        System.out.println("**********GET TARGET METHOD ARGUMENTS DEMO..");
+        for (Object obj: jp.getArgs()) {
+            System.out.println("ARG: " + obj);
+        }
     }
 }
 

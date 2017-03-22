@@ -1,5 +1,6 @@
 package com.spring.aop;
 
+import org.apache.http.annotation.Obsolete;
 import org.springframework.stereotype.Component;
 
 /** Cat class. */
@@ -21,6 +22,11 @@ public class Cat {
     /** scratch method. */
     public void atArgsAnnotationDemo() {
         System.out.println("Cat starting to scratch");
+    }
+
+    /** scratch method. */
+    public void getTargetArgumentsDemo(final String s) {
+        System.out.println("Cat starting to " + s);
     }
 }
 
