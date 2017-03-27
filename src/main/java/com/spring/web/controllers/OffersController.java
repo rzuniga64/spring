@@ -116,6 +116,12 @@ public class OffersController {
     }
 
     /*@RequestMapping("/")
+    public String showHome(final Model model) {
+        model.addAttribute("name", "Tiffany");
+        return "index";
+    }*/
+
+    /*@RequestMapping("/")
     public String showHome(final HttpSession session) {
         session.setAttribute("name", "Boris");
         return "index";
