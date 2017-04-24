@@ -1,4 +1,4 @@
-package com.spring.intro;
+package com.spring._01_intro;
 
 import java.util.List;
 
