@@ -1,6 +1,6 @@
 package com.spring.propertymaps;
 
-import com.spring.intro.Animal;
+import com.spring._01_intro.Animal;
 
 import java.util.HashMap;
 import java.util.Map;
