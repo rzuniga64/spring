@@ -6,7 +6,7 @@
        http://www.springframework.org/schema/beans/spring-beans.xsd"
         default-init-method="init" default-destroy-method="destroy">
 
-    <bean id="person" class="com.spring.intro.Person"
+    <bean id="person" class="com.spring._01_intro.Person"
           scope="singleton" init-method="onCreate" destroy-method="onDestroy"
             factory-method="getInstance">
         <constructor-arg name="newId" type="int" value="777"></constructor-arg>
@@ -20,7 +20,7 @@
     </bean>
 
     <!-- create the bean using a bean factory and bean method -->
-    <bean id="person2" class="com.spring.intro.Person"
+    <bean id="person2" class="com.spring._01_intro.Person"
           scope="singleton" init-method="onCreate" destroy-method="onDestroy"
           factory-method="createPerson" factory-bean="personfactory">
 
@@ -33,7 +33,7 @@
         <property name="address" ref="address"></property>
     </bean>
 
-    <bean id="address" class="com.spring.intro.Address">
+    <bean id="address" class="com.spring._01_intro.Address">
         <constructor-arg
                 name="newStreet" value="1000 Main Street">
         </constructor-arg>
@@ -41,15 +41,15 @@
     </bean>
 
     <!-- p namespace is alternative to using property tags -->
-    <bean id="address2" class="com.spring.intro.Address"
+    <bean id="address2" class="com.spring._01_intro.Address"
           p:street="1901A Woodland Avenue" p:postcode="78741">
     </bean>
 
     <bean id="personfactory"
-          class="com.spring.intro.PersonFactory">
+          class="com.spring._01_intro.PersonFactory">
     </bean>
 
-    <bean id="basket" class="com.spring.intro.FruitBasket">
+    <bean id="basket" class="com.spring._01_intro.FruitBasket">
         <constructor-arg name="newName" value="Fruit basket" ></constructor-arg>
         <constructor-arg>
             <list>

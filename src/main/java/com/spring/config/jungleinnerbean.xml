@@ -4,10 +4,10 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="jungle" class="com.spring.intro.Jungle">
+    <bean id="jungle" class="com.spring._01_intro.Jungle">
 
         <property name="largest">
-            <bean id="elephant" class="com.spring.intro.Animal">
+            <bean id="elephant" class="com.spring._01_intro.Animal">
                 <property name="name" value="Richard"></property>
                 <property name="type" value="elephant"></property>
             </bean>
@@ -15,11 +15,11 @@
 
         <property name="animals">
             <list>
-                <bean class="com.spring.intro.Animal">
+                <bean class="com.spring._01_intro.Animal">
                     <property name="name" value="Bob"></property>
                     <property name="type" value="snake"></property>
                 </bean>
-                <bean class="com.spring.intro.Animal">
+                <bean class="com.spring._01_intro.Animal">
                     <property name="name" value="Igor"></property>
                     <property name="type" value="lion"></property>
                 </bean>
