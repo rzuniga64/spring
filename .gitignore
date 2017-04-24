@@ -32,6 +32,7 @@ hs_err_pid*
 .idea/**/compiler.xml
 .idea/**/kotlin.xml
 .idea/dictionaries
+.idea/artifacts
 
 # Sensitive or high-churn files:
 .idea/**/dataSources/
