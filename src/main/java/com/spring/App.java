@@ -881,7 +881,6 @@ public final class App {
         System.out.println("Class of camera bean: " + camera.getClass());
         System.out.println(camera instanceof Camera);
         System.out.println(camera instanceof PhotoSnapper);
-        System.out.println(camera instanceof IMachin);
         //System.out.println(camera instanceof ICamera);
 
         try {
