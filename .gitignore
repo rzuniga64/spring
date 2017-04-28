@@ -30,7 +30,13 @@ hs_err_pid*
 .idea/**/workspace.xml
 .idea/**/tasks.xml
 .idea/**/compiler.xml
-.idea/**/kotlin.xml
+.idea/**/kotlinc.xml
+.idea/**/checkstyle-idea.xml
+.idea/**/misc.xml
+.idea/**/modules.xml
+.idea/**/php.xml
+.idea/**/sqldialects.xml
+.idea/**/vcs.xml
 .idea/dictionaries
 .idea/artifacts
 
@@ -57,6 +63,7 @@ hs_err_pid*
 
 # IntelliJ
 /out/
+/classes/
 
 # mpeltonen/sbt-idea plugin
 .idea_modules/
