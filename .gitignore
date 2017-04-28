@@ -40,6 +40,8 @@ hs_err_pid*
 .idea/dictionaries
 .idea/artifacts
 
+spring.iml
+
 # Sensitive or high-churn files:
 .idea/**/dataSources/
 .idea/**/dataSources.ids
