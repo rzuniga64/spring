@@ -10,8 +10,6 @@
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
 
-
-
     <!-- Spring needs to know to load dao-context.xml. XML file by adding some
          special entries to web.xml. Add a Spring class that will load all our
          other XML files and configure it. -->
@@ -28,7 +26,6 @@
             /WEB-INF/config/service-context.xml
             /WEB-INF/config/security-context.xml
         </param-value>
-
     </context-param>
 
     <servlet>
@@ -50,7 +47,6 @@
         <res-auth>Container</res-auth>
         <res-sharing-scope>Shareable</res-sharing-scope>
     </resource-ref>
-
 
     <filter>
         <filter-name>springSecurityFilterChain</filter-name>
