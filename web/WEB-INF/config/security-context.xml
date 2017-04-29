@@ -37,7 +37,8 @@
         <security:intercept-url pattern="/**"
                                 access="denyAll" />
         <!-- Specify access control using forms -->
-        <security:form-login login-page="/login"/>
+        <security:form-login login-page="/login"
+                             authentication-failure-forward-url="/login?error=true"/>
     </security:http>
 
 </beans:beans>
