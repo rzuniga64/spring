@@ -39,6 +39,7 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(60) NOT NULL,
   `password` varchar(80) NOT NULL,
+  `email` varchar(60) NOT NULL,
   `enabled` bool NOT NULL DEFAULT TRUE ,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
