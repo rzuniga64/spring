@@ -15,7 +15,6 @@ public class LoginController {
     @RequestMapping("/login")
     public String showLogin(final Model model) {
 
-        model.addAttribute("login");
         return "login";
     }
 }
