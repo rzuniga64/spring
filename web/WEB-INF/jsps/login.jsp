@@ -17,7 +17,7 @@
     <body onload="document.f.username.focus();" data-gr-c-s-loaded="true">
         <h3>Login with Username and Password</h3>
 
-        <c:if test="{${param.error != null}">
+        <c:if test="{${param.error}">
             <p class="error">
                 Login failed. Check that your username and password are correct.
             </p>
@@ -45,9 +45,9 @@
                         <input name="submit" value="Login" type="submit">
                     </td>
                 </tr>
-                <!--input name="_csrf"
-                       value="c150829a-4647-412a-850f-83b1d2e1a9ee"
-                       type="hidden"-->
+                <input name="${_csrf.parameterName}"
+                       value="${_csrf.token}"
+                       type="hidden">
                 </tbody>
             </table>
         </form>
