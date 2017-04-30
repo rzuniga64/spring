@@ -51,5 +51,6 @@
                 </tbody>
             </table>
         </form>
+    <p><a href="<c:url value='/newaccount'/>">Create new account</a></p>
     </body>
 </html>

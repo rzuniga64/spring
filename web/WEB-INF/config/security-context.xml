@@ -16,6 +16,9 @@
                                authorities="ROLE_ADMIN"/>
             </security:user-service>
         </security:authentication-provider>
+        <security:authentication-provider>
+            <security:jdbc-user-service data-source-ref="dataSource" />
+        </security:authentication-provider>
     </security:authentication-manager>
 
     <!-- Specify what pars of site is under access control -->
@@ -33,6 +36,12 @@
         <security:intercept-url pattern="/offers"
                                 access="permitAll" />
         <security:intercept-url pattern="/login"
+                                access="permitAll" />
+        <security:intercept-url pattern="/newaccount"
+                                access="permitAll" />
+        <security:intercept-url pattern="/createaccount"
+                                access="permitAll" />
+        <security:intercept-url pattern="/accountcreated"
                                 access="permitAll" />
         <security:intercept-url pattern="/**"
                                 access="denyAll" />

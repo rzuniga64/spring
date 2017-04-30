@@ -10,7 +10,10 @@ body {
 
 input[type=text] {
     width: 250px;
+}
 
+input[type=email] {
+    width: 250px;
 }
 
 .label {
