@@ -65,7 +65,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'rzuniga64','aggies92','1');
+INSERT INTO `users` VALUES (1,'rzuniga64','aggies92','rzuniga64@gmail.com', '1');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
