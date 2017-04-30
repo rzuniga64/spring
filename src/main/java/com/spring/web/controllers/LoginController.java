@@ -10,11 +10,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class LoginController {
     /**
      * showLogin method.
+     * @param model model
      * @return a String
      */
     @RequestMapping("/login")
-    public String showLogin() {
+    public String showLogin(final Model model) {
 
+        model.addAttribute("user", new User());
         return "login";
     }
 

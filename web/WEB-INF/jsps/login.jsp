@@ -23,34 +23,41 @@
             </p>
         </c:if>
 
-        <form name="f"
-              action="${pageContext.request.contextPath}/login"
-              method="POST">
-            <table class="formtable">
-                <tbody>
-                <tr>
-                    <td>User:</td>
-                    <td>
-                        <input name="username" value="" type="text">
-                    </td>
-                </tr>
-                <tr>
-                    <td>Password:</td>
-                    <td>
-                        <input name="password" type="password">
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <input name="submit" value="Login" type="submit">
-                    </td>
-                </tr>
+        <div class="container">
+            <div class="row"></div>
+            <sf:form method="post"
+                     action="${pageContext.request.contextPath}/login"
+                     commandName="user">
+
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <sf:input type="text"
+                              class="form-control"
+                              id="username"
+                              name="username"
+                              path="username"
+                              placeholder="Username"/>
+                    <br />
+                    <sf:errors path="username" cssClass="error"></sf:errors>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <sf:input type="text"
+                              class="form-control"
+                              id="password"
+                              name="password"
+                              path="password"
+                              placeholder="Password"/>
+                    <br />
+                    <sf:errors path="password" cssClass="error"></sf:errors>
+                </div>
                 <input name="${_csrf.parameterName}"
                        value="${_csrf.token}"
                        type="hidden">
-                </tbody>
-            </table>
-        </form>
+                <button type="submit" class="btn btn-default">Submit</button>
+
+            </sf:form>
+        </div>
     <p><a href="<c:url value='/newaccount'/>">Create new account</a></p>
     </body>
 </html>
