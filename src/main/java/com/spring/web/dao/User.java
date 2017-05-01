@@ -1,6 +1,5 @@
 package com.spring.web.dao;
 
-import com.spring.web.validators.ValidEmail;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.validation.constraints.Pattern;
