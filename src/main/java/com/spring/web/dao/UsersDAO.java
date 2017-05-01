@@ -1,16 +1,12 @@
 package com.spring.web.dao;
 
-import com.spring.models.Offer;
-import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.*;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import javax.sql.DataSource;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.List;
 
 /**
  * Users data access object.
@@ -20,6 +16,7 @@ public class UsersDAO {
 
     /** JDBC template. */
     private NamedParameterJdbcTemplate jdbc;
+    private JdbcTemplate Jdbc;
 
     /** Constructor. */
     public UsersDAO() { }
@@ -44,6 +41,11 @@ public class UsersDAO {
         this.jdbc = new NamedParameterJdbcTemplate(newJdbc);
     }
 
+    @Resource
+    public void setJdbcTemplate(final DataSource newJdbc) {
+        this.Jdbc = new JdbcTemplate(newJdbc);
+    }
+
     /**
      *  Create a User object in the database.
      *  Create a set of parameters you can use to replace placeholders in your
@@ -63,5 +65,16 @@ public class UsersDAO {
 
         return jdbc.update("insert into springtutorial.authorities (username, authority) "
                 + "values(:username, :authority)", params) == 1;
+    }
+
+    /**
+     * Username exists?
+     * @param username username
+     * @return true if exists; false otherwise
+     */
+    public boolean exists(final String username) {
+        return jdbc.queryForObject("select count(*) from users where username=:username",
+                new MapSqlParameterSource("username", username), Integer.class) > 0;
+
     }
 }

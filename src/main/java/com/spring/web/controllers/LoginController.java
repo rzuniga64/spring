@@ -3,6 +3,8 @@ package com.spring.web.controllers;
 import com.spring.web.dao.User;
 import com.spring.web.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.ui.Model;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -67,7 +69,20 @@ public class LoginController {
 
         user.setAuthority("ROLE_USER");
         user.setEnabled(true);
-        usersService.create(user);
+
+/*        if (usersService.exists(user.getUsername())) {
+            result.rejectValue("username", "DuplicateKey.user.username",
+                    "This username already exists!");
+            return "newaccount";
+        }
+*/
+        try {
+            usersService.create(user);
+        } catch (DuplicateKeyException e) {
+            result.rejectValue("username", "DuplicateKey.user.username",
+                    "This username already exists!");
+            return "newaccount";
+        }
 
         return "accountcreated";
     }

@@ -38,4 +38,13 @@ public class UsersService {
 
         usersDao.create(user);
     }
+
+    /**
+     * Username exists?
+     * @param username username
+     * @return true if exists; false otherwise
+     */
+    public boolean exists(final String username) {
+        return usersDao.exists(username);
+    }
 }
