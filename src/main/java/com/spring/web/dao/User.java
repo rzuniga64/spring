@@ -1,11 +1,28 @@
 package com.spring.web.dao;
 
+import com.spring.web.validators.ValidEmail;
+import org.hibernate.validator.constraints.NotBlank;
+
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
 /** User class. */
 public class User {
     /** User name. */
+    @NotBlank(message = "Username cannot be blank.")
+    @Size(min = 8, max = 15, message = "Username must be between 8 and 15"
+            + "characters long")
+    @Pattern(regexp = "^\\w{8,}$", message = "Username can only consist of "
+            + "numbers, letters and the underscore character.")
     private String username;
+
     /** Password. */
+    @NotBlank(message = "Password cannot be blank.")
+    @Pattern(regexp = "^\\S+$", message = "Password cannot contain spaces.")
+    @Size(min = 8, max = 15, message = "Password must be between 8 and 15 "
+            + "characters long.")
     private String password;
+
     /** Email. */
     private String email;
     /** enabled? */

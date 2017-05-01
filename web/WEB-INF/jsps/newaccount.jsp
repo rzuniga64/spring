@@ -30,9 +30,9 @@
                           name="username"
                           path="username"
                           placeholder="Username"/>
+                <br />
+                <sf:errors path="username" cssClass="error"></sf:errors>
             </div>
-            <br />
-            <sf:errors path="username" cssClass="error"></sf:errors>
         </div>
         <div class="form-group">
             <label for="email" class="col-sm-2 control-label">Email</label>
@@ -43,9 +43,9 @@
                           name="email"
                           path="email"
                           placeholder="Email"/>
+                <br />
+                <sf:errors path="email" cssClass="error"></sf:errors>
             </div>
-            <br />
-            <sf:errors path="email" cssClass="error"></sf:errors>
         </div>
         <div class="form-group">
             <label for="password" class="col-sm-2 control-label">Password</label>
@@ -56,9 +56,9 @@
                           name="password"
                           path="password"
                           placeholder="Password"/>
+                <br />
+                <sf:errors path="password" cssClass="error"></sf:errors>
             </div>
-            <br />
-            <sf:errors path="password" cssClass="error"></sf:errors>
         </div>
         <div class="form-group">
             <label for="confirmpass" class="col-sm-2 control-label">Confirm Password</label>

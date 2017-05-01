@@ -1,6 +1,5 @@
 package com.spring.web.controllers;
 
-import com.spring.models.Offer;
 import com.spring.web.dao.User;
 import com.spring.web.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,7 +62,7 @@ public class LoginController {
                                 final BindingResult result) {
 
         if (result.hasErrors()) {
-            return "createaccount";
+            return "newaccount";
         }
 
         user.setAuthority("ROLE_USER");
