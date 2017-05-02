@@ -12,14 +12,62 @@
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
           crossorigin="anonymous">
     <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet" type="text/css">
+    <script
+            type="text/javascript"
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+
+        function onLoad() {
+            $("#password").keyup(checkPasswordsMatch);
+            $("#confirmpass").keyup(checkPasswordsMatch);
+
+            $("#details").submit(canSubmit);
+        }
+
+        function canSubmit() {
+            var password = $("#password").val();
+            var confirmpass = $("#confirmpass").val();
+
+            if (password != confirmpass) {
+                alert("Passwords do not match!")
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+        function checkPasswordsMatch() {
+            var password = $("#password").val();
+            var confirmpass = $("#confirmpass").val();
+
+            if (password.length > 3 || confirmpass.length > 3) {
+
+                if (password == confirmpass) {
+                    $("#matchpass").text("Passwords match.");
+                    $("#matchpass").addClass("valid");
+                    $("#matchpass").removeClass("error");
+                } else {
+                    $("#matchpass").text("Passwords do not match.");
+                    $("#matchpass").addClass("error");
+                    $("#matchpass").removeClass("valid");
+                }
+            }
+        }
+
+        $(document).ready(onLoad);
+    </script>
 </head>
 <body>
 <h2 style="text-align:center">Create New Account</h2>
 <div class="container">
-    <div class="row"></div>
-    <sf:form method="post"
-             action="${pageContext.request.contextPath}/createaccount"
-             commandName="user">
+    <div class="row">
+        <sf:form method="post"
+                 action="${pageContext.request.contextPath}/createaccount"
+                 commandName="user"
+                 id="detaisl">
 
         <div class="form-group">
             <label for="username" class="col-sm-2 control-label">Username</label>
@@ -69,11 +117,13 @@
                           name="confirmpass"
                           placeholder="Password"/>
             </div>
-            <br />
+            <div class="col-sm-2"></div>
+            <div id="matchpass" class="col-sm-10"></div>
         </div>
         <button type="submit" class="btn btn-default">Create Account</button>
 
-    </sf:form>
-</div>
+        </sf:form>
+    </div><!-- row -->
+</div><!-- container -->
 </body>
 </html>
