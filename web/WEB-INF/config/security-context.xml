@@ -43,11 +43,14 @@
                                 access="permitAll" />
         <security:intercept-url pattern="/accountcreated"
                                 access="permitAll" />
+        <security:intercept-url pattern="/loggedout"
+                                access="permitAll" />
         <security:intercept-url pattern="/**"
                                 access="denyAll" />
         <!-- Specify access control using forms -->
         <security:form-login login-page="/login"
-                             authentication-failure-forward-url="/login?error=true"/>
+                        authentication-failure-forward-url="/login?error=true"/>
+        <security:logout logout-success-url="/logout" invalidate-session="true"/>
     </security:http>
 
 </beans:beans>

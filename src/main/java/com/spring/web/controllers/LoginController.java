@@ -54,6 +54,16 @@ public class LoginController {
     }
 
     /**
+     * showLogout method.
+     * @return a String
+     */
+    @RequestMapping("/logout")
+    public String showLoggedOut() {
+
+        return "logout";
+    }
+
+    /**
      * createAccount method.
      * @param user the user
      * @param result result
