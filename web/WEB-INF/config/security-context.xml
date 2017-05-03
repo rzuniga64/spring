@@ -23,6 +23,8 @@
 
     <!-- Specify what pars of site is under access control -->
     <security:http use-expressions="true">
+        <security:intercept-url pattern="/admin"
+                                access="hasRole('ROLE_ADMIN')" />
         <security:intercept-url pattern="/createoffer"
                                 access="isAuthenticated()" />
         <security:intercept-url pattern="/docreate"

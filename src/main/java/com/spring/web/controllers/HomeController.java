@@ -17,4 +17,13 @@ public class HomeController {
     public String showHome() {
         return "index";
     }
+
+    /**
+     * Display the admin page.
+     * @return the admin page as a String
+     */
+    @RequestMapping("/admin")
+    public String showAdmin() {
+        return "admin";
+    }
 }
