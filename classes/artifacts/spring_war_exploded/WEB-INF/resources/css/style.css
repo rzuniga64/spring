@@ -7,6 +7,11 @@ body {
     color: red;
 }
 
+.valid {
+    font-size: small;
+    color: green;
+}
+
 @-moz-document url-prefix() {
     fieldset { display: table-cell; }
 }

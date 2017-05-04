@@ -61,7 +61,7 @@ public class Camera implements PhotoSnapper {
      * @param aperture aperture
      */
     public void snap(final int exposure, final double aperture) {
-        System.out.printf("SNAP with exposure %d aperture %.2f\n", exposure,
+        System.out.printf("SNAP with exposure %d aperture %.2f%n", exposure,
                 aperture);
 
     }

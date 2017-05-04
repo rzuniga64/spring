@@ -73,7 +73,7 @@ public class UsersDAO {
      * @return true if exists; false otherwise
      */
     public boolean exists(final String username) {
-        return jdbc.queryForObject("select count(*) from users where username=:username",
+        return jdbc.queryForObject("select count(*) from users where binary username=:username",
                 new MapSqlParameterSource("username", username), Integer.class) > 0;
 
     }
@@ -87,7 +87,7 @@ public class UsersDAO {
 
         return jdbc.query("select * from springtutorial.users, "
                         + "springtutorial.authorities "
-                        + "where users.username=authorities.username",
+                        + "where binary users.username=authorities.username",
                 new BeanPropertyRowMapper<User>(User.class));
     }
 
@@ -98,7 +98,7 @@ public class UsersDAO {
     public List<User> getUsers() {
 
         return jdbc.query("select * from springtutorial.users, "
-                + "springtutorial.authorities where users.username=authorities.username",
+                + "springtutorial.authorities where binary users.username=authorities.username",
                 new RowMapper<User>() {
 
             public com.spring.models.User mapRow(final ResultSet resultSet, final int i)

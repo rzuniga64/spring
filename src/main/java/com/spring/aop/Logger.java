@@ -418,7 +418,7 @@ public class Logger {
                                                  final double aperture) {
 
         System.out.println("****GET TARGET METHOD ARGUMENTS USING NAMES OF ARGS DEMO..");
-        System.out.printf("exposure %d, aperture %.2f\n", exposure, aperture);
+        System.out.printf("exposure %d, aperture %.2f%n", exposure, aperture);
     }
 
     /**
@@ -430,7 +430,7 @@ public class Logger {
                                      final double aperture) {
 
         System.out.println("****COMBINING POINTCUTS DEMO..");
-        System.out.printf("exposure %d, aperture %.2f\n", exposure, aperture);
+        System.out.printf("exposure %d, aperture %.2f%n", exposure, aperture);
     }
 }
 
