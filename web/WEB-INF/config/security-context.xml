@@ -14,6 +14,9 @@
                 <security:user name="rzuniga64"
                                password="aggies92"
                                authorities="ROLE_ADMIN"/>
+                <security:user name="cinnamon"
+                               password="woof"
+                               authorities="ROLE_USER"/>
             </security:user-service>
         </security:authentication-provider>
         <security:authentication-provider>
@@ -32,23 +35,23 @@
         <security:intercept-url pattern="/offercreated"
                                 access="isAuthenticated()" />
         <security:intercept-url pattern="/resources/**"
-                                access="permitAll" />
+                                access="permitAll()" />
         <security:intercept-url pattern="/"
-                                access="permitAll" />
+                                access="permitAll()" />
         <security:intercept-url pattern="/offers"
-                                access="permitAll" />
+                                access="permitAll()" />
         <security:intercept-url pattern="/login"
-                                access="permitAll" />
+                                access="permitAll()" />
         <security:intercept-url pattern="/newaccount"
-                                access="permitAll" />
+                                access="permitAll()" />
         <security:intercept-url pattern="/createaccount"
-                                access="permitAll" />
+                                access="permitAll()" />
         <security:intercept-url pattern="/accountcreated"
-                                access="permitAll" />
-        <security:intercept-url pattern="/loggedout"
-                                access="permitAll" />
+                                access="permitAll()" />
+        <security:intercept-url pattern="/logout"
+                                access="permitAll()" />
         <security:intercept-url pattern="/**"
-                                access="denyAll" />
+                                access="denyAll()" />
         <!-- Specify access control using forms -->
         <security:form-login login-page="/login"
                         authentication-failure-forward-url="/login?error=true"/>

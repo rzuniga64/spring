@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html class="gr__localhost">
     <head>
         <title>Login Page</title>
@@ -27,7 +27,8 @@
             <div class="row"></div>
             <sf:form method="post"
                      action="${pageContext.request.contextPath}/login"
-                     commandName="user">
+                     commandName="user"
+                     name="f">
 
                 <div class="form-group">
                     <label for="username">Username</label>
