@@ -42,6 +42,15 @@ public class LoginController {
     }
 
     /**
+     * showDenied method.
+     * @return a String
+     */
+    @RequestMapping("/denied")
+    public String showDenied() {
+        return "denied";
+    }
+
+    /**
      * Display the admin page.
      * @param model medel
      * @return the admin page as a String
