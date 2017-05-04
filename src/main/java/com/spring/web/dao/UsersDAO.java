@@ -22,7 +22,6 @@ public class UsersDAO {
 
     /** JDBC template. */
     private NamedParameterJdbcTemplate jdbc;
-    private JdbcTemplate Jdbc;
 
     /** Constructor. */
     public UsersDAO() { }
