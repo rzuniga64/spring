@@ -92,7 +92,7 @@ public class OffersDAO2 {
      */
     public List<Offer> getOffers() {
 
-        return jdbc.query("select * from springtutorial.offers", new RowMapper<com.spring.models.Offer>() {
+        return jdbc.query("select * from springtutorial.offers", new RowMapper<Offer>() {
 
             public com.spring.models.Offer mapRow(final ResultSet resultSet, final int i)
                     throws SQLException {

@@ -1,10 +1,11 @@
 package com.spring.web.service;
 
-import com.spring.web.dao.User;
+import com.spring.models.User;
 import com.spring.web.dao.UsersDAO;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  *  OffersService class. A class that provides the service of coordinating data
@@ -46,5 +47,14 @@ public class UsersService {
      */
     public boolean exists(final String username) {
         return usersDao.exists(username);
+    }
+
+    /**
+     * getAllUsers method.
+     * @return all users
+     */
+    public List<User> getAllUsers() {
+
+        return usersDao.getAllUsers();
     }
 }

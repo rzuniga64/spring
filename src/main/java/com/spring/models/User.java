@@ -1,4 +1,4 @@
-package com.spring.web.dao;
+package com.spring.models;
 
 import org.hibernate.validator.constraints.NotBlank;
 

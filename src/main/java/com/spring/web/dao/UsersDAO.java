@@ -1,12 +1,18 @@
 package com.spring.web.dao;
 
+import com.spring.models.User;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.*;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import javax.sql.DataSource;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
 
 /**
  * Users data access object.
@@ -76,5 +82,42 @@ public class UsersDAO {
         return jdbc.queryForObject("select count(*) from users where username=:username",
                 new MapSqlParameterSource("username", username), Integer.class) > 0;
 
+    }
+
+    /**
+     * Take the SQL result and gives a RowMapper that maps each row to a User
+     * bean.
+     * @return all users
+     */
+    public List<User> getAllUsers() {
+
+        return jdbc.query("select * from springtutorial.users, "
+                        + "springtutorial.authorities "
+                        + "where users.username=authorities.username",
+                new BeanPropertyRowMapper<User>(User.class));
+    }
+
+    /**
+     *  Get all users. Alternative method to getAllUsers (not used).
+     *  @return offers
+     */
+    public List<User> getUsers() {
+
+        return jdbc.query("select * from springtutorial.users, "
+                + "springtutorial.authorities where users.username=authorities.username",
+                new RowMapper<User>() {
+
+            public com.spring.models.User mapRow(final ResultSet resultSet, final int i)
+                    throws SQLException {
+
+                User user = new com.spring.models.User();
+                user.setUsername(resultSet.getString("username"));
+                user.setEmail(resultSet.getString("email"));
+                user.setAuthority(resultSet.getString("authority"));
+                user.setEnabled(resultSet.getBoolean("enabled"));
+
+                return user;
+            }
+        });
     }
 }

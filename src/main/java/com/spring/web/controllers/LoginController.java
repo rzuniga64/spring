@@ -1,9 +1,8 @@
 package com.spring.web.controllers;
 
-import com.spring.web.dao.User;
+import com.spring.models.User;
 import com.spring.web.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataAccessException;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.ui.Model;
 import org.springframework.stereotype.Controller;
@@ -12,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.validation.Valid;
+import java.util.List;
 
 /** LoginController class. */
 @Controller
@@ -39,6 +39,22 @@ public class LoginController {
 
         model.addAttribute("user", new User());
         return "login";
+    }
+
+    /**
+     * Display the admin page.
+     * @param model medel
+     * @return the admin page as a String
+     */
+    @RequestMapping("/admin")
+    public String showAdmin(final Model model)
+    {
+
+        List<User> users = usersService.getAllUsers();
+
+        model.addAttribute("users", users);
+
+        return "admin";
     }
 
     /**
