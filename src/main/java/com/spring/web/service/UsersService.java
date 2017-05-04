@@ -2,6 +2,7 @@ package com.spring.web.service;
 
 import com.spring.models.User;
 import com.spring.web.dao.UsersDAO;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -53,6 +54,7 @@ public class UsersService {
      * getAllUsers method.
      * @return all users
      */
+    @Secured("ROLE_ADMIN")
     public List<User> getAllUsers() {
 
         return usersDao.getAllUsers();

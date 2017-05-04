@@ -27,7 +27,9 @@
     <!-- Specify what pars of site is under access control -->
     <security:http use-expressions="true">
         <security:intercept-url pattern="/admin"
-                                access="hasRole('ROLE_ADMIN')" />
+                                access="permitAll()"/>
+        <!--security:intercept-url pattern="/admin"
+                                access="hasRole('ROLE_ADMIN')" /-->
         <security:intercept-url pattern="/createoffer"
                                 access="isAuthenticated()" />
         <security:intercept-url pattern="/docreate"
@@ -57,5 +59,9 @@
                         authentication-failure-forward-url="/login?error=true"/>
         <security:logout logout-success-url="/logout" invalidate-session="true"/>
     </security:http>
+
+    <!-- Allow us to use annotations on methods to allow us to specify what
+         role a person must have to execute those methods -->
+    <security:global-method-security secured-annotations="enabled"></security:global-method-security>
 
 </beans:beans>
