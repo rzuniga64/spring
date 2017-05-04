@@ -47,11 +47,6 @@ public class UsersDAO {
         this.jdbc = new NamedParameterJdbcTemplate(newJdbc);
     }
 
-    @Resource
-    public void setJdbcTemplate(final DataSource newJdbc) {
-        this.Jdbc = new JdbcTemplate(newJdbc);
-    }
-
     /**
      *  Create a User object in the database.
      *  Create a set of parameters you can use to replace placeholders in your
