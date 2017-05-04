@@ -42,15 +42,25 @@
                     <sf:errors path="username" cssClass="error"></sf:errors>
                 </div>
                 <div class="form-group">
-                    <label for="password">Password</label>
-                    <sf:input type="text"
+                <label for="password">Password</label>
+                <sf:input type="text"
+                          class="form-control"
+                          id="password"
+                          name="password"
+                          path="password"
+                          placeholder="Password"/>
+                <br />
+                <sf:errors path="password" cssClass="error"></sf:errors>
+                </div>
+                <div class="form-group">
+                    <label for="password">Remember me</label>
+                    <input type="checkbox"
                               class="form-control"
-                              id="password"
-                              name="password"
-                              path="password"
-                              placeholder="Password"/>
+                              id="_spring_security"
+                              name="_spring_security"
+                              path=" "
+                              checked="checked"/>
                     <br />
-                    <sf:errors path="password" cssClass="error"></sf:errors>
                 </div>
                 <input name="${_csrf.parameterName}"
                        value="${_csrf.token}"
