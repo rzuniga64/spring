@@ -2,9 +2,9 @@ package com.spring.web.dao;
 
 import com.spring.models.User;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.*;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,6 +22,9 @@ public class UsersDAO {
 
     /** JDBC template. */
     private NamedParameterJdbcTemplate jdbc;
+    /** Password encoder. */
+    @Resource
+    private PasswordEncoder passwordEncoder;
 
     /** Constructor. */
     public UsersDAO() { }
@@ -57,8 +60,13 @@ public class UsersDAO {
     @Transactional
     public boolean create(final User user) {
 
-        BeanPropertySqlParameterSource params =
-                new BeanPropertySqlParameterSource(user);
+        MapSqlParameterSource params = new MapSqlParameterSource();
+
+        params.addValue("username", user.getUsername());
+        params.addValue("password", passwordEncoder.encode(user.getPassword()));
+        params.addValue("email", user.getEmail());
+        params.addValue("enabled", user.isEnabled());
+        params.addValue("authority", user.getAuthority());
 
         jdbc.update("insert into springtutorial.users (username, password, email, enabled) "
                 + "values(:username, :password, :email, :enabled)", params);
@@ -73,7 +81,7 @@ public class UsersDAO {
      * @return true if exists; false otherwise
      */
     public boolean exists(final String username) {
-        return jdbc.queryForObject("select count(*) from users where binary username=:username",
+        return jdbc.queryForObject("select count(*) from springtutorial.users where binary username=:username",
                 new MapSqlParameterSource("username", username), Integer.class) > 0;
 
     }

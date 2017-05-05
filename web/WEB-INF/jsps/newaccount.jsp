@@ -99,7 +99,7 @@
         <div class="form-group">
             <label for="password" class="col-sm-2 control-label">Password</label>
             <div class="col-sm-10">
-                <sf:input type="text"
+                <sf:input type="password"
                           class="form-control"
                           id="password"
                           name="password"
@@ -112,7 +112,7 @@
         <div class="form-group">
             <label for="confirmpass" class="col-sm-2 control-label">Confirm Password</label>
             <div class="col-sm-10">
-                <input type="text"
+                <input type="password"
                           class="form-control"
                           id="confirmpass"
                           name="confirmpass"
