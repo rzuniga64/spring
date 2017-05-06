@@ -14,7 +14,15 @@
          special entries to web.xml. Add a Spring class that will load all our
          other XML files and configure it. -->
     <listener>
-        <listener-class>org.springframework.web.context.ContextLoaderListener
+        <listener-class>
+            org.springframework.web.context.ContextLoaderListener
+        </listener-class>
+    </listener>
+
+    <!-- Load the tiles container using the appropriate listener -->
+    <listener>
+        <listener-class>
+            org.apache.tiles.extras.complete.CompleteAutoloadTilesListener
         </listener-class>
     </listener>
 
@@ -37,6 +45,17 @@
     <servlet-mapping>
         <servlet-name>offers</servlet-name>
         <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Tiles Dispatch Servlet</servlet-name>
+        <servlet-class>
+            org.apache.tiles.web.util.TilesDispatchServlet
+        </servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Tiles Dispatch Servlet</servlet-name>
+        <url-pattern>*.tiles</url-pattern>
     </servlet-mapping>
 
     <description>Spring Database</description>
