@@ -19,13 +19,6 @@
         </listener-class>
     </listener>
 
-    <!-- Load the tiles container using the appropriate listener -->
-    <listener>
-        <listener-class>
-            org.apache.tiles.extras.complete.CompleteAutoloadTilesListener
-        </listener-class>
-    </listener>
-
     <!-- Configure the listener to load our other XML files -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
@@ -45,17 +38,6 @@
     <servlet-mapping>
         <servlet-name>offers</servlet-name>
         <url-pattern>/</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>Tiles Dispatch Servlet</servlet-name>
-        <servlet-class>
-            org.apache.tiles.web.util.TilesDispatchServlet
-        </servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>Tiles Dispatch Servlet</servlet-name>
-        <url-pattern>*.tiles</url-pattern>
     </servlet-mapping>
 
     <description>Spring Database</description>

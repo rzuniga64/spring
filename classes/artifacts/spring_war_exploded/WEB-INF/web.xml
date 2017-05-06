@@ -14,7 +14,8 @@
          special entries to web.xml. Add a Spring class that will load all our
          other XML files and configure it. -->
     <listener>
-        <listener-class>org.springframework.web.context.ContextLoaderListener
+        <listener-class>
+            org.springframework.web.context.ContextLoaderListener
         </listener-class>
     </listener>
 
