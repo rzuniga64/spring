@@ -29,8 +29,6 @@
     <bean id="viewResolver"
           class="org.springframework.web.servlet.view.tiles3.TilesViewResolver">
     </bean>
-
-
     <!-- Configure how to pull in JSP files in order to resolve the view -->
     <bean id="tilesConfigurer"
           class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
