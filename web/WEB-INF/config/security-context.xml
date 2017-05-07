@@ -18,7 +18,7 @@
                                password="woof"
                                authorities="ROLE_USER"/>
             </security:user-service>
-            <security:password-encoder ref="passwordEncoder"></security:password-encoder>
+            <security:password-encoder ref="passwordEncoder" />
         </security:authentication-provider-->
 
         <security:authentication-provider>
