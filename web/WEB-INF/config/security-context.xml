@@ -26,7 +26,7 @@
                                         authorities-by-username-query='select * from springtutorial.authorities where binary username = ?'
                                         users-by-username-query='select * from springtutorial.users where binary username = ?'
                                         id="jdbcUserService" />
-            <security:password-encoder ref="passwordEncoder"></security:password-encoder>
+            <security:password-encoder ref="passwordEncoder" />
         </security:authentication-provider>
     </security:authentication-manager>
 
@@ -76,7 +76,7 @@
 
     <!-- Allow us to use annotations on methods to allow us to specify what
          role a person must have to execute those methods -->
-    <security:global-method-security secured-annotations="enabled"></security:global-method-security>
+    <security:global-method-security secured-annotations="enabled" />
 
 
 </beans:beans>
