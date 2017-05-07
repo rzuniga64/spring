@@ -7,7 +7,7 @@
     <div class="row">
         <sf:form method="post"
                  action="${pageContext.request.contextPath}/createaccount"
-                 commandName="user"
+                 modelAttribute="user"
                  id="detaisl">
 
         <div class="form-group">

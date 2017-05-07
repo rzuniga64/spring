@@ -19,7 +19,7 @@
     <div class="row"></div>
     <sf:form method="post"
              action="${pageContext.request.contextPath}/login"
-             commandName="user"
+             modelAttribute="user"
              name="f">
 
         <div class="form-group">

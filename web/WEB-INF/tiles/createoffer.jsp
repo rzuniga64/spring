@@ -5,7 +5,7 @@
     <div class="row"></div>
     <sf:form method="post"
              action="${pageContext.request.contextPath}/docreate"
-             commandName="offer">
+             modelAttribute="offer">
 
         <div class="form-group">
             <label for="name">Name</label>
