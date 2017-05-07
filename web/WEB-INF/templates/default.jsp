@@ -13,12 +13,19 @@
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
           crossorigin="anonymous">
     <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet" type="text/css">
+    <script
+            type="text/javascript"
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous">
+    </script>
+    <tiles:insertAttribute name="includes"/>
 </head>
 <body>
 
-        <tiles:insertAttribute name="header"></tiles:insertAttribute>
-        <tiles:insertAttribute name="content"></tiles:insertAttribute>
-        <tiles:insertAttribute name="footer"></tiles:insertAttribute>
+        <tiles:insertAttribute name="header"/>
+        <tiles:insertAttribute name="content"/>
+        <tiles:insertAttribute name="footer"/>
 
 </body>
 </html>

@@ -25,9 +25,13 @@
                 <li><a href="${pageContext.request.contextPath}/offers">Show current offers</a></li>
                 <li><a href="${pageContext.request.contextPath}/createoffer">Add a new offer</a></li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Link</a></li>
-            </ul>
+            <c:url var="loginUrl" value="/login"/>
+            <sec:authorize access="!isAuthenticated()">
+                <form action="${loginUrl}" method="post" class="nav navbar-nav navbar-right">
+                    <input type="submit" value="Login" />
+                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+                </form>
+            </sec:authorize>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
