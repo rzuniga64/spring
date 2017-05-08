@@ -9,14 +9,15 @@
 </script>
 <h3>Login with Username and Password</h3>
 
-<c:if test="{${param.error}">
-    <p class="error">
-        Login failed. Check that your username and password are correct.
-    </p>
-</c:if>
-
 <div class="container">
     <div class="row"></div>
+
+    <c:if test="${param.error}">
+        <p class="error">
+            Login failed. Check that your username and password are correct.
+        </p>
+    </c:if>
+
     <sf:form method="post"
              action="${pageContext.request.contextPath}/login"
              modelAttribute="user"
