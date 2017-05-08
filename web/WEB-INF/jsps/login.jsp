@@ -20,7 +20,7 @@
         <div class="container">
             <div class="row"></div>
 
-            <c:if test="${param.error}">
+            <c:if test="${param.error ne null}">
                 <p class="error">
                     Login failed. Check that your username and password are correct.
                 </p>
