@@ -2,6 +2,10 @@ body {
     background-color: cornsilk;
 }
 
+h3 {
+    text-align: center;
+}
+
 .error {
     font-size: small;
     color: red;
