@@ -42,10 +42,10 @@
           <element id="library" level="project" name="Maven: org.apache.tiles:tiles-compat:3.0.7" />
           <element id="library" level="project" name="Maven: org.apache.tiles:tiles-autotag-core-runtime:1.2" />
           <element id="library" level="project" name="Maven: org.apache.tiles:tiles-api:3.0.7" />
-          <element id="library" level="project" name="Maven: org.slf4j:slf4j-jdk14:1.7.25" />
           <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.25" />
           <element id="library" level="project" name="Maven: commons-digester:commons-digester:2.1" />
           <element id="library" level="project" name="Maven: commons-beanutils:commons-beanutils:1.9.3" />
+          <element id="library" level="project" name="Maven: org.slf4j:log4j-over-slf4j:1.7.25" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="spring/web/Web" />

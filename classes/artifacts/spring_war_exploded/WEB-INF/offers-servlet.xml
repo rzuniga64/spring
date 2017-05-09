@@ -18,26 +18,26 @@
     <mvc:annotation-driven></mvc:annotation-driven>
     <mvc:resources mapping="/resources/**" location="/WEB-INF/resources/"/>
 
-    <!--bean id="jspViewResolver"
+    <bean id="jspViewResolver"
           class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/jsps/"></property>
         <property name="suffix" value=".jsp"></property>
-    </bean-->
+    </bean>
 
     <!-- View resolver will figure out how to take logical name of each of the
      pages and resolve it to JSP files -->
-    <bean id="viewResolver"
+    <!--bean id="viewResolver"
           class="org.springframework.web.servlet.view.tiles3.TilesViewResolver">
-    </bean>
+    </bean-->
     <!-- Configure how to pull in JSP files in order to resolve the view -->
-    <bean id="tilesConfigurer"
+    <!--bean id="tilesConfigurer"
           class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
         <property name="definitions">
             <list>
                 <value>/WEB-INF/defs/tiles.xml</value>
             </list>
         </property>
-    </bean>
+    </bean-->
 
 
     <bean id="messageSource"
