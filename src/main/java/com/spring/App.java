@@ -6,11 +6,12 @@ import com.spring.annotation.usingqualifiers.Logger7;
 import com.spring.annotation.setpropertyvalues.Robot;
 import com.spring.aop.*;
 import com.spring.autobeandiscovery.Logger10;
+import com.spring.autowire.bytype.Logger1;
 import com.spring.autowire.removeambiguities.Logger5;
 import com.spring.autowire.byconstructor.Logger3;
 import com.spring.autowire.bydefault.Logger4;
 import com.spring.autowire.byname.Logger2;
-import com.spring.autowire.bytype.Logger;
+import com.spring.autowire.bytype.Logger1;
 import com.spring.annotation.initdestroy.Logger9;
 import com.spring.daopattern.Robot6;
 import com.spring.dbcp.Robot7;
@@ -33,6 +34,8 @@ import org.springframework.jdbc.CannotGetJdbcConnectionException;
 
 import java.util.ArrayList;
 import java.util.List;
+
+
 
 /**
  *  Application class.
@@ -247,7 +250,7 @@ public final class App {
                 new FileSystemXmlApplicationContext(
             "src/main/java/com/spring/config/autowirebytype.xml");
 
-        Logger logger = (Logger) context.getBean("autowirebytype");
+        Logger1 logger = (Logger1) context.getBean("autowirebytype");
 
         logger.writeConsole("Autowire by type");
         logger.writeFile("Autowire by type");

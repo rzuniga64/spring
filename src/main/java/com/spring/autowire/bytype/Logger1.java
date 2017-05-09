@@ -4,7 +4,7 @@ package com.spring.autowire.bytype;
  *  Dummy implementation of Logger4 class.
  *  We need to wire the ConsoleWriter and FileWriter config into this class.
  */
-public class Logger {
+public class Logger1 {
 
     /** Consoler writer. */
     private ConsoleWriter consoleWriter;
