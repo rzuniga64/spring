@@ -23,16 +23,16 @@
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>
-            dao-context.xml
-            service-context.xml
-            security-context.xml
+            /WEB-INF/config/dao-context.xml
+            /WEB-INF/config/service-context.xml
+            /WEB-INF/config/security-context.xml
         </param-value>
     </context-param>
 
-    <context-param>
+    <!--context-param>
         <param-name>spring.profiles.active</param-name>
         <param-value>production</param-value>
-    </context-param>
+    </context-param-->
 
     <servlet>
         <servlet-name>offers</servlet-name>

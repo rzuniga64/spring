@@ -21,7 +21,7 @@
 	<context:component-scan base-package="com.spring.web.dao">
 	</context:component-scan>
 
-    <beans profile="production">
+    <!--beans profile="production"-->
         <jee:jndi-lookup jndi-name="jdbc/MySQLDataSource"
                          id="dataSource"
                          expected-type="javax.sql.DataSource">
@@ -32,5 +32,5 @@
             <property name="dataSource" ref="dataSource"/>
         </bean>
         <tx:annotation-driven />
-    </beans>
+    <!--/beans-->
 </beans>
