@@ -35,7 +35,7 @@ import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import java.util.ArrayList;
 import java.util.List;
 
-
+import org.apache.log4j.Logger;
 
 /**
  *  Application class.
@@ -67,6 +67,8 @@ import java.util.List;
  */
 public final class App {
 
+    /** Log4j logger. */
+    private static Logger logger = Logger.getLogger(App.class);
     /** Default constructor. */
     private App() { }
 
@@ -75,6 +77,10 @@ public final class App {
      * @param args args.
      */
     public static void main(final String[] args) {
+
+        logger.debug("Showing home page...");
+        logger.info("informational message");
+        logger.warn("Warning Message");
 
         App app = new App();
         app.basicBeanConfiguration();
