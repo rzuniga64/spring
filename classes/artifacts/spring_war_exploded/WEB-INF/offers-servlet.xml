@@ -8,11 +8,10 @@
 	http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans.xsd
 	http://www.springframework.org/schema/context
-	http://www.springframework.org/schema/context/spring-context-3.2.xsd">
+	http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
     <!-- Specify the location of your config -->
-    <context:component-scan base-package="com.spring.web.controllers">
-    </context:component-scan>
+    <context:component-scan base-package="com.spring.web.controllers" />
 
     <!-- This is what makes the @Controller annotation work.-->
     <mvc:annotation-driven/>
