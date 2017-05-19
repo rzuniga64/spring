@@ -28,9 +28,9 @@
             <tbody>
                 <c:forEach var="offer" items="${offers}">
                 <tr>
-                    <td><c:out value="${offer.name}"></c:out></td>
-                    <td><c:out value="${offer.email}"></c:out></td>
-                    <td><c:out value="${offer.text}"></c:out></td>
+                    <td><c:out value="${offer.name}"/></td>
+                    <td><c:out value="${offer.email}"/></td>
+                    <td><c:out value="${offer.text}"/></td>
                 </tr>
                 </c:forEach>
             </tbody>
