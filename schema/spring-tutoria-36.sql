@@ -1,4 +1,4 @@
-CREATE DATABASE  IF NOT EXISTS `springtutorial` /*!40100 DEFAULT CHARACTER SET utf8 */;
+CREATE DATABASE IF NOT EXISTS `springtutorial` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `springtutorial`;
 -- MySQL dump 10.13  Distrib 5.5.24, for osx10.5 (i386)
 --
@@ -23,43 +23,39 @@ USE `springtutorial`;
 
 DROP TABLE IF EXISTS `offers`;
 DROP TABLE IF EXISTS `users`;
-DROP TABLE IF EXISTS `authorities`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `offers` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) NOT NULL,
-  `email` varchar(60) NOT NULL,
+  `username` varchar(100) NOT NULL,
   `text` text NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`, `username`),
+  INDEX `fk_offers_users_idx`(`username` ASC),
+  CONSTRAINT `fk_offers_users`
+  FOREIGN KEY (`username`)
+  REFERENCES `users`(`username`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 CREATE TABLE `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(60) NOT NULL,
   `password` varchar(80) NOT NULL,
-  `email` varchar(60) NOT NULL,
-  `enabled` bool NOT NULL DEFAULT TRUE ,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
-CREATE TABLE `authorities` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(60) NOT NULL,
   `authority` varchar(45) NOT NULL,
-  PRIMARY KEY (`id`)
+  `name` varchar(100) NOT NULL,
+  `email` varchar(60) NOT NULL,
+  `enabled` bool NOT NULL DEFAULT TRUE,
+  PRIMARY KEY (`username`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
 --
 -- Dumping data for table `offers`
 --
 
 LOCK TABLES `offers` WRITE;
 /*!40000 ALTER TABLE `offers` DISABLE KEYS */;
-INSERT INTO `offers` VALUES (1,'Bob','bob@nowhereatall.com','I will write Java for you'),(2,'Mike','mike@nowhereatall.com','Web design, very cheap'),(3,'Sue','sue@nowhereatall.com','PHP coding');
+INSERT INTO `offers` VALUES (1,'Bob','bob','I will write Java for you'),(2,'Mike','mike','Web design, very cheap'),(3,'Sue','sue','PHP coding');
 /*!40000 ALTER TABLE `offers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -69,11 +65,6 @@ INSERT INTO `users` VALUES (1,'rzuniga64','aggies92','rzuniga64@gmail.com', '1')
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
-LOCK TABLES `authorities` WRITE;
-/*!40000 ALTER TABLE `authorities` DISABLE KEYS */;
-INSERT INTO `authorities` VALUES (1,'rzuniga64','ROLE_ADMIN');
-/*!40000 ALTER TABLE `authorities` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
